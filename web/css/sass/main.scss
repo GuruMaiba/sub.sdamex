@@ -1,0 +1,22 @@
+@import "globalStyle/_bootstrapStyle.scss";
+@import "globalStyle/_variables.scss";
+@import "main/_mixins.scss";
+@import "main/_univStyle.scss";
+@import "_common.scss";
+
+.view {
+    position: relative;
+    z-index: 5;
+}
+
+@import "main/_layout.scss";
+@import "main/_chat.scss";
+@import "main/_webinars.scss";
+@import "main/_webinar.scss";
+@import "main/_courses.scss";
+@import "main/_course.scss";
+@import "main/_module.scss";
+@import "main/_exams.scss";
+@import "main/_exam.scss";
+@import "main/_fun.scss";
+@import "main/_teachers.scss";

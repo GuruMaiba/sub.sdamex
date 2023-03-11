@@ -1,0 +1,590 @@
+.pageTop.topModule {
+    .numbModule {
+        position: absolute;
+        right: 40px;
+        bottom: 50px;
+        display: flex;
+        align-items: center;
+        color: $mCrimson_m;
+        font-family: 'Rubik';
+        font-size: 40px;
+        font-weight: bold;
+
+        .numb {
+            font-size: 60px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.pageModule {
+    padding-top: 50px;
+    @extend %ttlDescLinks;
+
+    .lessons {
+        position: relative;
+        width: 92%;
+        margin: 0 0 0 auto;
+
+        .listName {
+            font-family: 'Cormorant Infant';
+            font-size: 30px;
+            text-align: right;
+            padding-bottom: 8px;
+            margin: 40px 0 10px;
+            border-bottom: 1px solid $mBlue_l;
+        }
+
+        .numbers {
+            position: absolute;
+            right: calc(100% + 0px);
+            min-height: 650px;
+            border-right: 4px solid $mCrimson_l;
+            // border-radius: 10px 0 0 10px;
+            // overflow: hidden;
+
+            li {
+                cursor: pointer;
+                // color: #fff;
+                font-family: 'Rubik';
+                font-size: 25px;
+                font-weight: 600;
+                padding: 15px 20px;
+                border-radius: 15px 0 0 15px;
+                // background: $mBlue_d;
+                transition: all .3s ease;
+
+                &:hover {color: $mCrimson_m;}
+                &.active {
+                    color: #fff;
+                    background: $mCrimson_l;
+                }
+                &.disable {
+                    cursor: default;
+                    opacity: .5;
+                    &:hover {color: $mBlue_l;}
+                }
+            }
+        }
+
+        .lesson {
+            min-height: 50vh;
+
+            .video {
+                width: 100%;
+                height: 650px;
+                background: $mCrimson_l;
+
+                iframe {
+                    width: calc(100% - 4px);
+                    height: 100%;
+                }
+
+                .def {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 25px;
+                    font-style: italic;
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    i { font-size: 70px; }
+                }
+            }
+
+            .title {
+                font-size: 40px;
+                font-weight: 600;
+                margin-top: 30px;
+            }
+
+            .desc { margin-top: 15px; }
+
+            .exams {
+                display: flex;
+                justify-content: space-between;
+                margin: 40px 0;
+
+                .exam {
+                    display: flex;
+                    align-items: center;
+                    height: 70px;
+
+                    @extend %examLink;
+                    .link {
+                        &.check {
+                            cursor: default;
+                            opacity: .5;
+                        }
+                    }
+
+                    .brd {
+                        width: 2px;
+                        height: 100%;
+                        margin: 0 15px;
+                        background: $mBlue_d;
+                    }
+
+                    &.test {
+                        .brd { opacity: 0; }
+                        .progress {
+                            @include circleProgress(60px, 15px, $mBlue_d, $mCrimson_l, 1);
+                            opacity: 0;
+
+                            &.done {
+                                .borders .circle {
+                                    &.rightActive, &.leftActive {
+                                        .border:before { border-color: rgba($mGreen, .7); }
+                                    }
+                                }
+                            }
+                        }
+
+                        .points {
+                            @include points($mCrimson_l, 50px, .86, $mBlue_l);
+                            position: relative;
+                            opacity: 0;
+                            transition: all .3s ease;
+
+                            .myPoints { padding-left: 2px; }
+                        }
+
+                        &.completed {
+                            .brd { opacity: 1; }
+                            .progress { opacity: 1; }
+                            .points {
+                                opacity: 1;
+                                &.done {
+                                    opacity: .7;
+                                    .myPoints { color: $mGreen; }
+                                }
+                            }
+                        }
+                    }
+
+                    &.write {
+                        .progress {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 60px;
+                            height: 60px;
+                            color: #fff;
+                            font-size: 40px;
+                            line-height: 0;
+                            border-radius: 100%;
+                            opacity: .7;
+    
+                            &.wrong { background: $mCrimson_l; }
+                            &.right { background: $mGreen; }
+                        }
+                    }
+                }
+            }
+
+            .testing {
+                display: none;
+                padding: 40px 30px 0;
+                border-top: 2px solid $mBlue_l;
+
+                .task {
+                    color: $mOrange_l;
+                    font-size: 22px;
+                    font-style: italic;
+                    white-space: pre-wrap;
+
+                    hr {
+                        width: 60%;
+                        margin: 20px 0;
+                        border-color: $mOrange_l;
+                    }
+                }
+
+                .desc {
+                    margin-top: 25px;
+                    p {
+                        margin: 8px 0 0 0;
+                        white-space: normal;
+                    }
+                    hr {
+                        width: 40%;
+                        margin: 30px 0;
+                        border-color: $mBlue_l;
+                    }
+                }
+
+                .audio {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+
+                @extend %test;
+                @extend %write;
+                .test {margin: 40px auto 0;}
+                .write {
+                    margin-top: 30px;
+                    .countChars { bottom: -30px; }
+                    .defaultMess {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 18px;
+                        height: 200px;
+                        opacity: .8;
+                    }
+                }
+
+                .send {
+                    width: 30%;
+                    color: $mBlue_l;
+                    font-family: 'Rubik';
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    text-align: center;
+                    padding: 15px 0;
+                    margin: 40px auto 0;
+                    border: 1px solid transparent;
+                    border-top-color: $mBlue_l;
+                    transition: all .3s ease;
+                    &:hover {
+                        cursor: pointer;
+                        color: $mOrange_l;
+                        border-top-color: $mOrange_l;
+                        border-bottom-color: $mOrange_l;
+                    }
+                    &.disable {
+                        opacity: .5;
+                        &:hover {
+                            cursor: default;
+                            color: $mBlue_l;
+                            border-top-color: $mBlue_l;
+                            border-bottom-color: transparent;
+                        }
+                    }
+                    // border-radius: 0 10px;
+                    // background: rgba($mOrange_l, .9);
+                }
+
+                // &.checked {
+                //     .test .question {
+                //         .exe .variants .item {
+                //             &:hover {
+                //                 cursor: auto;
+                //                 color: $mBlue_d;
+                //                 .check {
+                //                     color: $mBlue_d;
+                //                     border-color: $mBlue_d;
+                //                 }
+                //             }
+                //             &.active {
+                //                 color: $mCrimson_m;
+                //                 .check {
+                //                     color: #fff;
+                //                     border-color: $mCrimson_m;
+                //                     background: $mCrimson_m;
+                //                 }
+                //             }
+                //             &.right {
+                //                 color: $mGreen;
+                //                 .check {
+                //                     color: $mGreen;
+                //                     border: 1px solid $mGreen;
+                //                     background: #fff;
+                //                 }
+                //                 &.active .check { color: #fff; background: $mGreen; }
+                //             }
+                //         } // end .exe .variants .item
+    
+                //         &.err {
+                //             .numb {
+                //                 color: #fff;
+                //                 background: $mCrimson_m;
+                //             }
+                //             .exe .txt { color: $mCrimson_m; }
+                //         }
+                //     } // end .test .question
+    
+                //     .write.new {
+                //         textarea { display: none; }
+                //         .done {
+                //             display: flex;
+                //             justify-content: center;
+                //             align-items: center;
+                //             height: 150px;
+                //         }
+                //     } // end .write
+                // } // end .checked
+            } // end .testing
+
+            .nextLes {
+                @extend %mainLink;
+                &.hide {
+                    cursor: default;
+                    opacity: 0;
+                }
+            }
+
+            @extend %buyCourse;
+        } // end .lesson
+
+        .defMess {
+            font-style: italic;
+            font-size: 25px;
+            text-align: center;
+            padding: 100px 0;
+            opacity: .8;
+        }
+    } // end .lessons
+} // end .pageModule
+
+@media (max-width: 1360px) {
+}
+
+@media (max-width: 1024px) {
+    .pageModule {
+        .lessons {
+            width: 95%;
+    
+            .listName { font-size: 25px; }
+            .numbers {
+                min-height: 360px;
+                border-right-width: 3px;
+    
+                li {
+                    font-size: 15px;
+                    font-weight: 500;
+                    padding: 10px 15px;
+                    border-radius: 10px 0 0 10px;
+                }
+            }
+    
+            .lesson {
+                .video {
+                    height: 360px;
+                    iframe { width: calc(100% - 3px); }
+                    .def {
+                        font-size: 20px;
+                        i { font-size: 50px; }
+                    }
+                }
+    
+                .title {
+                    font-size: 35px;
+                    margin-top: 20px;
+                }
+    
+                .exams {
+                    margin: 20px 0;
+    
+                    .exam {
+                        height: 45px;
+    
+                        .brd {
+                            width: 1px;
+                            margin: 0 12px;
+                        }
+                        
+                        &.test {
+                            .progress {
+                                width: 45px;
+                                height: 45px;
+
+                                .borders .circle {
+                                    .border:before {
+                                        $brdR: 45px - (10px*2);
+                                        width: $brdR;
+                                        height: $brdR;
+                                        border-width: 10px;
+                                    }
+                                }
+                            }
+    
+                            .points {
+                                .myPoints {
+                                    font-size: 35px;
+                                    padding-left: 5px;
+                                }
+                                .needPoints {
+                                    font-size: 13px;
+                                    padding-left: 3px;
+                                }
+                            }
+                        }
+    
+                        &.write {
+                            .progress {
+                                width: 45px;
+                                height: 45px;
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                }
+    
+                .testing {
+                    display: none;
+                    padding: 30px 10px 0;
+    
+                    .send {
+                        width: 40%;
+                        font-size: 15px;
+                        margin: 60px auto 0;
+                    }
+                } // end .testing
+    
+                .nextLes {
+                    font-size: 30px;
+                    margin-top: 30px;
+                    hr { margin-bottom: 15px; }
+                }
+            } // end .lesson
+    
+            .defMess {
+                font-size: 17px;
+                padding: 20px 0;
+            }
+        } // end .lessons
+    } // end .pageModule
+}
+
+@media (max-width: 768px) {
+    .pageModule {
+        padding: 20px 10px 0;
+
+        .lessons {
+            width: 100%;
+    
+            .listName { font-size: 18px; }
+            .numbers {
+                position: relative;
+                right: 0;
+                display: flex;
+                min-height: initial;
+                border-right-width: 0;
+    
+                li {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 13px;
+                    font-weight: 500;
+                    padding: 0;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 10px;
+                }
+            }
+    
+            .lesson {
+                margin-top: 10px;
+                .video {
+                    height: 250px;
+                    border: {
+                        left: 2px solid $mCrimson_l;
+                        right: 2px solid $mCrimson_l;
+                    };
+                    iframe { width: 100%; }
+                    .def {
+                        font-size: 15px;
+                        i { font-size: 30px; }
+                    }
+                }
+    
+                .title {
+                    font-size: 25px;
+                    margin-top: 15px;
+                }
+    
+                .exams {
+                    // display: flex;
+                    flex-direction: column;
+                    // align-items: flex-end;
+                    margin: 20px 0 5px;
+                    padding-right: 20px;
+                    border-top: 1px solid $mBlue_l;
+    
+                    .exam {
+                        height: 30px;
+                        margin: 10px 0;
+                        .brd { margin: 0 10px; }
+                        &.test {
+                            margin-left: 29px;
+                            .progress {
+                                width: 30px;
+                                height: 30px;
+
+                                .borders .circle {
+                                    .border:before {
+                                        $brdR: 30px - (8px*2);
+                                        width: $brdR;
+                                        height: $brdR;
+                                        border-width: 8px;
+                                    }
+                                }
+                            }
+    
+                            .points {
+                                .myPoints {
+                                    font-size: 23px;
+                                    padding-left: 3px;
+                                }
+                                .needPoints {
+                                    font-size: 11px;
+                                    padding-left: 3px;
+                                }
+                            }
+                        }
+
+                        &.write {
+                            margin-left: 5px;
+                            .progress {
+                                width: 30px;
+                                height: 30px;
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+    
+                .testing {
+                    display: none;
+                    padding: 20px 10px 0;
+                    border-top-width: 1px;
+
+                    .task { font-size: 17px; }
+                    .write .download {
+                        left: auto;
+                        right: 0;
+                        .countFiles { right: calc(100% + 6px); }
+                    }
+                    .send {
+                        width: 70%;
+                        font-size: 13px;
+                        margin-top: 40px;
+                        padding: 10px 0;
+                    }
+                } // end .testing
+    
+                .nextLes {
+                    font-size: 15px;
+                    margin-top: 30px;
+                    hr {
+                        width: 80%;
+                        border-top-width: 1px;
+                        margin-bottom: 10px;
+                    }
+                }
+            } // end .lesson
+    
+            .defMess {
+                font-size: 13px;
+                padding: 10px 0;
+            }
+        } // end .lessons
+    } // end .pageModule
+}

@@ -1,0 +1,29 @@
+// UNIVERSAL STYLE
+// -----------------------
+@import "../globalStyle/_univStyle.scss";
+
+// Текст заглушка
+%cap {
+    .cap {
+        // color: $mOrange_m;
+        color: $mBlue_l;
+        font-size: 60px;
+        font-weight: 600;
+        margin-top: 70px;
+        opacity: .5;
+    }
+
+    @media (max-width: 1024px) {
+        .cap {
+            font-size: 40px;
+            margin-top: 50px;
+        }   
+    }
+
+    @media (max-width: 768px) {
+        .cap {
+            font-size: 30px;
+            margin-top: 40px;
+        }   
+    }
+}

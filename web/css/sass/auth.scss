@@ -1,0 +1,337 @@
+@import "globalStyle/_bootstrapStyle.scss";
+@import "globalStyle/_variables.scss";
+@import "personal/_mixins.scss";
+@import "personal/_univStyle.scss";
+@import "_common.scss";
+
+.authPage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: linear-gradient(to right top, #051937, #061b39, #061d3b, #071f3d, #08213f);
+    // background: #fff;
+
+    .formBlock {
+        $opc: .8;
+        position: relative;
+        width: 500px;
+        height: 80%;
+        box-shadow: 0 0 20px rgba(black, .5);
+        background-image: linear-gradient(to right top, rgba(#ee3b51, $opc), rgba(#f24a4d, $opc), rgba(#f6584a, $opc), rgba(#f96548, $opc), rgba(#fb7246, $opc));
+        z-index: 9;
+
+        .tabs {
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            display: flex;
+
+            .item {
+                cursor: pointer;
+                color: #fff;
+                font-family: 'Rubik';
+                font-size: 15px;
+                padding: 10px;
+                border-top: 2px solid transparent;
+                transition: all .3s ease;
+
+                &.active { border-color: #fff; }
+                &:hover { opacity: .7; }
+            }
+        } // end .tabs
+
+        .logo {
+            color: #fff;
+            font-size: 60px;
+            font-weight: 500;
+            text-align: center;
+            padding: 70px 0 25px 0;
+        }
+
+        .forms {
+            position: relative;
+            width: 70%;
+            height: 65%;
+            margin: 0 auto;
+            overflow: hidden;
+
+            @-webkit-keyframes autofill {
+              to {
+                color: inherit;
+                background: transparent;
+              }
+            }
+
+            .input {
+                width: calc(100% - 32px);
+                color: #fff;
+                // text-align: center;
+                font-size: 18px;
+                padding: 10px 15px;
+                border: 1px solid #fff;
+                background: none;
+                @include placeholder(rgba(#fff, 1));
+
+                &:-webkit-autofill,
+                &:-webkit-autofill:hover,
+                &:-webkit-autofill:focus
+                &:-webkit-autofill {
+                    -webkit-text-fill-color: $mOrange_m;
+                    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+                }
+            }
+
+            .form {
+                display: none;
+                margin-top: 25px;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .formGroup {
+                    position: relative;
+                    width: 100%;
+                    margin-bottom: 20px;
+
+                    .nameForm {
+                        position: absolute;
+                        top: calc(100% + 5px);
+                        color: #fff;
+                        font-size: 13px;
+                    }
+                }
+
+                .checkboxBlock {
+                    display: flex;
+                    width: 100%;
+                    margin-top: -5px;
+                }
+
+                .send {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    margin: -5px 10px 10px auto;
+                    border-radius: 100px;
+                    transition: all .3s ease;
+                    cursor: pointer;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        display: block;
+                        border: 1px solid #fff;
+                        border-radius: 100px;
+                        transition: all .3s ease;
+                    }
+
+                    .icon {
+                        position: absolute;
+                        top: 9px;
+                        left: 9px;
+                        color: #fff;
+                        font-size: 22px;
+                        transition: all .3s ease;
+                    }
+
+                    &:hover {
+                        .icon { color: $mOrange_m; }
+                        &::before { border: 20px solid #fff; }
+                    }
+
+                    &.disable {
+                        cursor: auto;
+                        opacity: .3;
+                        .icon { color: #fff; }
+                        &::before { border: 1px solid #fff; }
+                    }
+                } // end .send
+
+                &.active { display: block; }
+
+                &.signin {
+                    .formGroup {
+                        .forgotPass {
+                            cursor: pointer;
+                            position: absolute;
+                            top: calc(100% + 5px);
+                            right: 0;
+                            color: #fff;
+                            font-size: 12px;
+                            transition: all .3s ease;
+                            &:hover { border-bottom: 1px dashed #fff; }
+                        }
+                    }
+                } // end .signin
+
+                &.signup {
+                    .checkboxBlock {
+                        margin-top: -5px;
+
+                        .checkMark + label > .txt {
+                            font-size: 12px;
+                            line-height: 15px;
+                        }
+
+                        a {
+                            color: #fff;
+                            text-decoration: overline;
+                            // font-weight: 600;
+                            &:hover { background: $mOrange_l; }
+                        }
+                    }
+                    .send { margin-top: 5px; }
+                } // end .signup
+            } // end .form
+
+            .helpBlock {
+                position: absolute;
+                bottom: -60%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                color: #fff;
+                opacity: .7;
+                transition: all .5s ease;
+
+                .icon {
+                    font-size: 25px;
+                    margin-bottom: 10px;
+                }
+
+                .text {
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 20px;
+
+                    a {
+                        color: #fff;
+                        text-decoration: overline;
+                        font-weight: 600;
+                        &:hover { background: $mOrange_l; }
+                    }
+                }
+
+                &.active { bottom: 30px; }
+                &:hover { opacity: 1; }
+            } // end .helpBlock
+
+            .download {
+                position: absolute;
+                bottom: -100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                color: $mOrange_m;
+                background: #fff;
+                transition: bottom .5s ease-out;
+
+                .elem {
+                    display: none;
+                    &.active { display: block; }
+                }
+
+                .stub {
+                    font-family: 'Rubik';
+                    font-size: 30px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+
+                    .smile {
+                        font-family: 'Rubik';
+                        font-size: 100px;
+                        transform: rotate(90deg);
+                    }
+                }
+
+                .mailConfirm {
+                    text-align: center;
+                    font-family: 'Rubik';
+                    font-size: 18px;
+                    font-weight: 500;
+                    padding: 20px;
+
+                    .linkEmail {
+                        display: inline-block;
+                        color: $mOrange_m;
+                        font-size: 30px;
+                        text-decoration: overline;
+                        margin-top: 10px;
+                        &:hover { color: $mCrimson_l; }
+                    }
+                }
+
+                &.active { bottom: 0; }
+            }
+        } // end .forms
+
+        .social {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            // text-align: center;
+            // padding: 20px 0;
+            margin: 0 auto;
+            border-top: 1px solid #fff;
+            z-index: 9;
+
+            .item {
+                display: block;
+                color: #fff;
+                font-size: 30px;
+                padding: 20px 3px;
+                &:hover { border-top: 5px solid #fff; }
+            }
+        } // end .social
+    } // end .formBlock
+
+    .waves {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 500px;
+        overflow: hidden;
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            opacity: .3;
+            fill: $mOrange_m;
+
+            &.wave1 {
+                height: 100%;
+                fill: $mCrimson_d;
+                z-index: 4;
+            }
+            &.wave2 {
+                height: 100%;
+                bottom: -100px;
+                fill: $mCrimson_m;
+                z-index: 6;
+            }
+            &.wave3 {
+                height: 100%;
+                bottom: -100px;
+                fill: $mOrange_m;
+                z-index: 7;
+            }
+        }
+    }
+} // end .authPage

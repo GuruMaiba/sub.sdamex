@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /personal/
+Allow: /personal/profile/*
+Host: https://mth.sdamex.ru
+Sitemap: https://mth.sdamex.ru/sitemap.xml

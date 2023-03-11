@@ -1,0 +1,1088 @@
+.pageExam {
+    .header {
+        .navbar {
+            display: flex;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 15px;
+            border-bottom: 1px solid $mBlue_d;
+
+            .menu {
+                .item {
+                    color: $mBlue_d;
+                    padding: 0 5px;
+                }
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                .nick { color: $mBlue_d; }
+                .ava {
+                    @include ava(25px, 1px, $mBlue_d);
+                    margin-left: 5px;
+                }
+            }
+        } // end .navbar
+    } // end .header
+    .content {
+        padding: 50px 20px 50px 0px;
+        // border-left: 1px solid $mCrimson_m;
+        border-right: 1px solid $mBlue_d;
+
+        .top {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-family: 'Rubik';
+
+            .back {
+                position: absolute;
+                top: -28px;
+                right: 0px;
+                font-size: 18px;
+                font-weight: 500;
+
+                i { vertical-align: middle;}
+                &:hover { color: $mOrange_d; }
+            }
+
+            .logo { display:none; font-size: 50px; }
+            .title {
+                width: 100%;
+                text-align: center;
+
+                .course {
+                    color: $mBlue_d;
+                    font-size: 80px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    line-height: 1;
+                }
+
+                hr {
+                    // display: none;
+                    width: 500px;
+                    margin: {
+                        left: auto;
+                        right: auto;
+                    }
+                    border: 1px solid $mBlue_d;
+                    // border-color: $mBlue_d;
+                }
+            } // end .title
+    
+            .timer {
+                position: absolute;
+                right: -40px;
+                bottom: -105px;
+
+                .icon {
+                    color: $mBlue_d;
+                    font-size: 30px;
+                    line-height: 0;
+                    padding: 5px;
+                    border-radius: 100px;
+                    background: #fff;
+                    transition: all .3s ease;
+                }
+
+                .counter {
+                    position: absolute;
+                    top: -45%;
+                    right: 50px;
+                    color: $mBlue_d;
+                    font-family: Rubik;
+                    font-size: 70px;
+                    font-weight: 500;
+                    opacity: 0;
+                    transition: all .3s ease;
+                }
+
+                &:hover, &.active {
+                    cursor: pointer;
+                    .icon { color: $mOrange_m; }
+                    .counter { opacity: 1; }
+                }
+            }
+        } // end .top
+
+        .exams {
+            .section {
+                margin-top: 50px;
+                .nameSection {
+                    position: relative;
+                    display: inline-block;
+                    color: #fff;
+                    font-size: 40px;
+                    padding: 10px 30px 10px 10px;
+                    border-radius: 0 10px 10px 0;
+                    background: $mOrange_m;
+
+                    .strik {
+                        position: absolute;
+                        top: 0;
+                        right: 100%;
+                        height: 100%;
+                        width: 3000px;
+                        background: $mOrange_m;
+                    }
+                }
+
+                .task {
+                    margin: 40px 0 80px 0;
+
+                    .number {
+                        font-size: 25px;
+                        margin: 0 0 10px 10px;
+                    }
+
+                    .exam {
+                        .desc {
+                            position: relative;
+                            color: $mBlue_d;
+                            font-style: italic;
+                            font-size: 18px;
+                            padding: 30px 30px;
+                            border-radius: 10px;
+                            border: 2px solid $mBlue_l;
+                            white-space: pre-wrap;
+
+                            .connect {
+                                position: absolute;
+                                top: 50%;
+                                right: -22px;
+                                height: 1px;
+                                width: 20px;
+                                background-color: $mBlue_d;
+                            }
+                        }
+
+                        .cont {
+                            padding: 40px 50px 0;
+                            font-size: 18px;
+
+                            .text {
+                                margin-bottom: 50px;
+                                // white-space: pre-wrap;
+                                text-align: justify;
+
+                                h3 {
+                                    text-align: center;
+                                    font-size: 40px;
+                                    font-weight: 600;
+                                    margin-bottom: 30px;
+                                }
+
+                                p { margin-bottom: 5px; }
+                            }
+
+                            .audio {
+                                display: block;
+                                margin: 0 auto 50px;
+                                width: 80%;
+                            }
+
+                            @extend %test;
+                            @extend %write;
+                            
+                            .correlate {
+                                @extend %disTxtSelect;
+                                .variants {
+                                    width: 95%;
+                                    margin: 0 auto;
+
+                                    .item {
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        // align-items: center;
+                                        white-space: pre-wrap;
+                                        margin-bottom: 10px;
+                                        transition: all .3s ease;
+
+                                        .check {
+                                            $wh: 30px;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: $wh;
+                                            height: $wh;
+                                            min-width: $wh;
+                                            min-height: $wh;
+                                            // padding: 5px 11px;
+                                            margin-right: 10px;
+                                            border-radius: 8px 0 8px 0;
+                                        }
+                                    }
+
+                                    $ansClr: $mBlue_l;    // Color
+                                    $ansHov: $mOrange_m;     // Hover
+                                    $ansAct: $mOrange_m;     // Active
+
+                                    .numbers {
+                                        .item {
+                                            cursor: pointer;
+                                            color: $ansClr;
+                                            .check {
+                                                color: $ansClr;
+                                                border: 1px solid $ansClr;
+                                                // background: $ansClr;
+                                            }
+                                            .txt {
+                                                padding-top: 5px;
+                                                border-top: 1px solid $ansClr;
+                                            }
+                                            &:hover {
+                                                color: $ansHov;
+                                                .check {
+                                                    color: $ansHov;
+                                                    border-color: $ansHov;
+                                                }
+                                                .txt { border-color: $ansHov; }
+                                            }
+                                            &.active {
+                                                color: $ansAct;
+                                                opacity: .3;
+                                                .check {
+                                                    color: #fff;
+                                                    border-color: $ansAct;
+                                                    background: $ansAct;
+                                                }
+                                                .txt { border-color: $ansAct; }
+                                            }
+                                        }
+                                        &.focus {
+                                            .item {
+                                                opacity: .3;
+                                                &.focus { 
+                                                    opacity: 1;
+                                                    color: $ansAct;
+                                                    .check {
+                                                        color: #fff;
+                                                        border-color: $ansAct;
+                                                        background: $ansAct;
+                                                    }
+                                                    .txt { border-color: $ansAct; }
+                                                }
+                                            }
+                                        }
+                                    } // end .numbers
+
+                                    .letters {
+                                        margin-top: 40px;
+                                        .letter.active {
+                                            .ans { display: flex; }
+                                        }
+                                        .item {
+                                            // opacity: .5;
+                                            color: $mBlue_d;
+                                            .check {
+                                                color: #fff;
+                                                background: $mBlue_d;
+                                            }
+                                            &.ans {
+                                                cursor: pointer;
+                                                display: none;
+                                                color: $ansAct;
+                                                margin-top: -5px;
+                                                margin-left: 20px;
+                                                .check {
+                                                    color: #fff;
+                                                    background: $ansAct;
+                                                }
+                                                .txt {
+                                                    padding-top: 5px;
+                                                    border-top: 1px solid $ansAct;
+                                                }
+                                            }
+                                        }
+                                        &.focus {
+                                            .qst {
+                                                cursor: pointer;
+                                                color: $ansClr;
+                                                .check {
+                                                    color: #fff;
+                                                    background: $ansClr;
+                                                }
+                                                &:hover {
+                                                    color: $mOrange_l;
+                                                    .check {
+                                                        background: $mOrange_l;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } // end .letters
+                                } // end .variants
+
+                                .tableAnswers {
+                                    width: 100%;
+                                    text-align: center;
+                                    margin-top: 50px;
+                                    border-spacing: 0;
+                                    border-radius: 10px;
+                                    border: 1px solid $mBlue_d;
+                                    overflow: hidden;
+
+                                    th,td {
+                                        min-width: 50px;
+                                        padding: 15px 0;
+                                    }
+                                    .title {
+                                        max-width: 40%;
+                                        min-width: 30%;
+                                    }
+                                    .rowLetters {
+                                        color: #fff;
+                                        background: $mBlue_l;
+                                    }
+
+                                    .rowNumbers {
+                                        .numb {
+                                            position: relative;
+                                            border-left: 1px solid $mBlue_d;
+
+                                            .list {
+                                                position: absolute;
+                                                bottom: 100%;
+                                                width: 100%;
+                                                height: 1px;
+                                                opacity: 0;
+                                                border-radius: 10px 10px 0 0;
+                                                background: $mOrange_m;
+                                                overflow: hidden;
+                                                transition: all .3s ease;
+
+                                                hr {
+                                                    width: 70%;
+                                                    margin: 0 auto;
+                                                    border: 0;
+                                                    border-top: 1px solid #fff;
+                                                }
+
+                                                .item {
+                                                    color: #fff;
+                                                    padding: 15px 0;
+                                                    text-align: center;
+                                                    transition: all .3s ease;
+
+                                                    &:hover {
+                                                        cursor: pointer;
+                                                        background: $mBlue_l;
+                                                    }
+                                                }
+                                            } // end .list
+
+                                            &.active {
+                                                .list {
+                                                    height: inherit;
+                                                    opacity: 1;
+                                                }
+                                            }
+                                        } // end .numb
+                                    } // end .rowNumbers
+                                } // end .tableAnswers
+                            } // end .correlate
+
+                            .addition {
+                                $defFormActiveClr: $mOrange_m;
+                                $defFormPassiveClr: rgba($mBlue_l, .8);
+                                // white-space: pre-wrap;
+                                text-align: justify;
+                                line-height: 1.5;
+
+                                p { margin-top: 10px; }
+
+                                .wordInput {
+                                    position: relative;
+                                    display: inline-flex;
+                                    width: 150px;
+                                    font-family: 'Rubik';
+                                    padding: 0 0px 0px;
+                                    border-bottom: 1px solid rgba($mBlue_l, .4);
+                                
+                                    input {
+                                        width: 100%;
+                                        color: $defFormActiveClr; //$mClr_l
+                                        text-transform: uppercase;
+                                        font-size: 16px;
+                                        text-align: center;
+                                        border: 0;
+                                        // border-bottom: 1px solid $txtClr;
+                                        background: transparent;
+
+                                        &:focus ~ .line,
+                                        &:valid ~ .line { width: 100%; left: 0%;}
+                                        &::-webkit-input-placeholder { color: rgba($mBlue_d, .4); }
+                                        &::-moz-placeholder          { color: rgba($mBlue_d, .4); }
+                                        &:-moz-placeholder           { color: rgba($mBlue_d, .4); }
+                                        &:-ms-input-placeholder      { color: rgba($mBlue_d, .4); }
+                                        &[type="password"]:valid {letter-spacing: 0.3em;}
+                                    }
+                                
+                                    .line {
+                                        position: absolute;
+                                        bottom: 0px;
+                                        left: 50%;
+                                        height: 1px;
+                                        width: 0%;
+                                        margin-bottom: -1px;
+                                        background: $defFormActiveClr;
+                                        transition: all .3s ease-in;
+                                    }
+                                }
+
+                                table {
+                                    min-width: 50%;
+                                    white-space: initial;
+                                    margin: 20px 0;
+                                    border: 1px solid $mBlue_l;
+                                    border-radius: 5px;
+                                    border-spacing: 0;
+                                    overflow: hidden;
+
+                                    thead { font-weight: 500; }
+                                    td {
+                                        vertical-align: middle;
+                                        // text-align: center;
+                                        padding: 10px;
+                                        border: 1px solid rgba($mBlue_l, .3);
+
+                                        p {margin: 0;}
+                                        .wordInput { width: 80px; }
+                                    }
+                                }
+                            } // end .addition
+                        } // end .cont
+                    } // end .exam
+                } // end .task
+
+                // &.training { margin-top: 10px; }
+            } // end .section
+        } // end .exams
+
+        .control {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+
+            .btn {
+                color: $mBlue_l;
+                font-weight: 500;
+                padding: 10px;
+                margin: 0 5px;
+                border-radius: 3px;
+                border: 2px solid $mBlue_l;
+                transition: all .3s ease;
+
+                &.next, &.back {display:none;}
+
+                &:hover {
+                    cursor: pointer;
+                    color: #fff;
+                    border-color: $mOrange_m;
+                    background-color: $mOrange_m;
+                }
+
+                &.skip {
+                    color: $mBlue_l;
+                    border-color: transparent;
+                    opacity: .7;
+
+                    &:hover {
+                        color: $mCrimson_m;
+                        border-bottom-color: $mCrimson_m;
+                        background: none;
+                        opacity: 1;
+                    }
+                }
+
+                &.disable {
+                    cursor: default;
+                    opacity: .2;
+                    &:hover {
+                        color: $mBlue_l;
+                        border-color: $mBlue_l;
+                        background-color: #fff;
+                    }
+                }
+            }
+
+            .result, .endMessage { display: none; }
+        }
+
+        &.checked {
+            .exams .section .task {
+                .exam .cont {
+                    .correlate {
+                        .variants {
+                            .numbers {
+                                .item:hover {
+                                    cursor: initial;
+                                }
+                            } // end .numbers
+    
+                            .letters {
+                                .item.ans { cursor: initial; }
+                                .qst {
+                                    color: $mGreen;
+                                    .check {
+                                        background: $mGreen;
+                                    }
+                                    &.error {
+                                        color: $mCrimson_m;
+                                        .check {
+                                            background: $mCrimson_m;
+                                        }
+                                    }    
+                                }
+                                .ans {
+                                    .txt {
+                                        color: $mBlue_l;
+                                        border-color: $mBlue_l;
+                                    }
+                                    .check { background: $mBlue_l; }
+                                }
+                            } // end .letters
+                        } // end .variants
+                    } // end .correlate
+    
+                    .test .question {
+                        .exe {
+                            .variants {
+                                .item {
+                                    &:hover {
+                                        cursor: auto;
+                                        color: $mBlue_d;
+                                        .check {
+                                            color: $mBlue_d;
+                                            border-color: $mBlue_d;
+                                        }
+                                    }
+                                    &.active {
+                                        color: $mCrimson_m;
+                                        .check {
+                                            color: #fff;
+                                            border-color: $mCrimson_m;
+                                            background: $mCrimson_m;
+                                        }
+                                    }
+                                    &.right {
+                                        color: $mGreen;
+                                        .check {
+                                            color: $mGreen;
+                                            border: 1px solid $mGreen;
+                                            background: #fff;
+                                        }
+                                        &.active .check { color: #fff; background: $mGreen; }
+                                    }
+                                } // end .item
+                            } // end .variants
+                        } // end .exe
+    
+                        &.err {
+                            .numb {
+                                color: #fff;
+                                background: $mCrimson_m;
+                            }
+                            .exe .txt { color: $mCrimson_m; }
+                        }
+                    } // end .test .question
+    
+                    .addition {
+                        .wordInput {
+                            border-color: $mGreen;
+                            input { color: $mGreen; }
+                            .line { background: $mGreen; }
+                            &.err {
+                                border-color: $mCrimson_m;
+                                input {
+                                    color: $mCrimson_m;
+                                    &::-webkit-input-placeholder { color: rgba($mCrimson_m, 1); }
+                                    &::-moz-placeholder          { color: rgba($mCrimson_m, 1); }
+                                    &:-moz-placeholder           { color: rgba($mCrimson_m, 1); }
+                                    &:-ms-input-placeholder      { color: rgba($mCrimson_m, 1); }
+                                }
+    
+                                .line {
+                                    background: $mCrimson_m;
+                                }
+                            }
+                        }
+                    } // end .addition
+    
+                    .write.new {
+                        textarea { display: none; }
+                        .download { display: none; }
+                        .done {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 150px;
+                            text-align: center;
+                        }
+                    } // end .write
+                } // end .exams
+
+                .taskResult {
+                    width: 180px;
+                    font-size: 13px;
+                    padding: 0 0 5px 10px;
+                    margin: 20px -20px 0 auto;
+                    border-bottom: 1px solid $mBlue_l;
+                    
+                    .item {
+                        position: relative;
+                        margin-right: 8px;
+                        .num {
+                            color: $mOrange_m;
+                            font-size: 18px;
+                        }
+                        .max {
+                            position: absolute;
+                            bottom: -5px;
+                            right: -5px;
+                            // vertical-align: super;
+                            opacity: .5;
+                            font-size: 10px;
+                            padding-left: 1px;
+                        }
+                    }
+
+                    &.notCheck { opacity: .5; }
+                }
+            } // end .task
+
+            .control {
+                .btn {
+                    &.skip, &.check, &.endExam {display:none;}
+                    &.next {display:inherit;}
+                }
+                .result {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .item {
+                        position: relative;
+                        font-size: 17px;
+                        margin: 0 10px;
+                        .num {
+                            color: $mOrange_m;
+                            font-size: 25px;
+                            font-weight: 500;
+                        }
+                        .max {
+                            position: absolute;
+                            top: -6px;
+                            right: -12px;
+                            vertical-align: super;
+                            opacity: .5;
+                            font-size: 13px;
+                            // padding-left: 1px;
+                        }
+                    }
+                }
+                &.full {
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    .endMessage {
+                        display: block;
+                        // width: 100%;
+                        white-space: pre-wrap;
+                        font-style: italic;
+                        text-align: center;
+                        margin-top: 20px;
+
+                        a {
+                            border-bottom: 1px solid $mBlue_l;
+                            &:hover {
+                                color: $mOrange_m;
+                                border-bottom-color: $mOrange_m;
+                            }
+                        }
+                    }
+
+                    .back {
+                        display: inline-block;
+                        width: 200px;
+                        text-align: center;
+                        margin-top: 35px;
+                    }
+                }
+            } // end control
+        } // end .checked
+    } // end .content
+} // end .pageExam
+
+@media (max-width: 1024px) {
+    .pageExam {
+        .content {
+            .top {
+                .back { font-size: 15px; }
+    
+                // .logo { display:none; font-size: 50px; }
+                .title {
+                    .course { font-size: 60px; }
+                } // end .title
+        
+                // .timer {
+                //     position: absolute;
+                //     right: -40px;
+                //     bottom: -105px;
+    
+                //     .icon {
+                //         color: $mBlue_d;
+                //         font-size: 30px;
+                //         line-height: 0;
+                //         padding: 5px;
+                //         border-radius: 100px;
+                //         background: #fff;
+                //         transition: all .3s ease;
+                //     }
+    
+                //     .counter {
+                //         position: absolute;
+                //         top: -45%;
+                //         right: 50px;
+                //         color: $mBlue_d;
+                //         font-family: Rubik;
+                //         font-size: 70px;
+                //         font-weight: 500;
+                //         opacity: 0;
+                //         transition: all .3s ease;
+                //     }
+    
+                //     &:hover, &.active {
+                //         cursor: pointer;
+                //         .icon { color: $mOrange_m; }
+                //         .counter { opacity: 1; }
+                //     }
+                // }
+            } // end .top
+        }
+    } // end .pageExam
+}
+
+@media (max-width: 768px) {
+    .pageExam {
+        .content {
+            padding: 40px 10px 40px 10px;
+            border-right: 0;
+    
+            .top {
+                .back {
+                    top: -28px;
+                    right: 0px;
+                    font-size: 13px;
+                }
+    
+                // .logo { display:none; font-size: 50px; }
+                .title {
+                    .course {
+                        font-size: 25px;
+                        padding: 0 10px;
+                        overflow: hidden;
+                    }
+    
+                    hr {
+                        width: 80%;
+                        border-width: 0px;
+                        border-top-width: 1px;
+                        margin: 10px auto 0;
+                    }
+                } // end .title
+        
+                // .timer {
+                //     position: absolute;
+                //     right: -40px;
+                //     bottom: -105px;
+    
+                //     .icon {
+                //         color: $mBlue_d;
+                //         font-size: 30px;
+                //         line-height: 0;
+                //         padding: 5px;
+                //         border-radius: 100px;
+                //         background: #fff;
+                //         transition: all .3s ease;
+                //     }
+    
+                //     .counter {
+                //         position: absolute;
+                //         top: -45%;
+                //         right: 50px;
+                //         color: $mBlue_d;
+                //         font-family: Rubik;
+                //         font-size: 70px;
+                //         font-weight: 500;
+                //         opacity: 0;
+                //         transition: all .3s ease;
+                //     }
+    
+                //     &:hover, &.active {
+                //         cursor: pointer;
+                //         .icon { color: $mOrange_m; }
+                //         .counter { opacity: 1; }
+                //     }
+                // }
+            } // end .top
+    
+            .exams {
+                .section {
+                    margin-top: 30px;
+
+                    .nameSection {
+                        font-size: 20px;
+                        padding: 10px 20px 10px 5px;
+                        border-radius: 0 5px 5px 0;
+    
+                        .strik { width: 30px; }
+                    }
+    
+                    .task {
+                        margin: 25px 0 60px 0;
+    
+                        .number {
+                            font-size: 17px;
+                            // margin: 0 0 10px 10px;
+                        }
+    
+                        .exam {
+                            .desc {
+                                font-size: 13px;
+                                padding: 10px;
+                                border-radius: 5px;
+                                border-width: 1px;
+    
+                                .connect { display: none; }
+                            }
+    
+                            .cont {
+                                padding: 20px 0px 0;
+                                font-size: 15px;
+    
+                                .text {
+                                    margin-bottom: 30px;
+                                    padding: 0 10px;
+    
+                                    h3 {
+                                        font-size: 20px;
+                                        margin-bottom: 15px;
+                                    }
+    
+                                    p { margin-bottom: 3px; }
+                                }
+    
+                                .audio {
+                                    margin: 0 auto 50px;
+                                    width: 100%;
+                                }
+    
+                                .correlate {
+                                    .variants {
+                                        width: 100%;
+    
+                                        .item {
+                                            margin-bottom: 10px;
+    
+                                            .check {
+                                                $wh: 22px;
+                                                width: $wh;
+                                                height: $wh;
+                                                min-width: $wh;
+                                                min-height: $wh;
+                                                font-size: 13px;
+                                                margin-right: 8px;
+                                                border-radius: 5px 0 5px 0;
+                                            }
+                                        }
+    
+                                        .numbers {
+                                            .item {
+                                                .txt { font-size: 13px; }
+                                            }
+                                        } // end .numbers
+    
+                                        .letters {
+                                            margin-top: 25px;
+                                            .item {
+                                                .txt {
+                                                    font-size: 14px;
+                                                    padding-top: 3px;
+                                                }
+                                                &.ans {
+                                                    margin-top: -5px;
+                                                    margin-left: 10px;
+                                                    .txt { font-size: 13px; }
+                                                }
+                                            }
+                                        } // end .letters
+                                    } // end .variants
+    
+                                    .tableAnswers {
+                                        display: flex;
+                                        margin-top: 50px;
+                                        border-spacing: 0;
+                                        border-radius: 5px;
+
+                                        .row {
+                                            width: 50%;
+                                            font-size: 13px;
+                                            .title {
+                                                width: 100%;
+                                            }
+                                            tr {
+                                                display: flex;
+                                                flex-direction: column;
+                                                th,td { padding: 10px 0; }
+                                            }
+
+                                            &.rowNumbers {
+                                                .numb {
+                                                    border-left: 0;
+                                                    border-top: 1px solid $mBlue_d;
+                                                    height: 34px;
+                                                } // end .numb
+                                            } // end .rowNumbers
+                                        }
+                                    } // end .tableAnswers
+                                } // end .correlate
+    
+                                .addition {
+                                    font-size: 13px;
+    
+                                    .wordInput {
+                                        width: 100px;
+                                        padding-bottom: 2px;
+                                    
+                                        input { font-size: 13px; }
+                                    }
+                                } // end .addition
+                            } // end .cont
+                        } // end .exam
+                    } // end .task
+                } // end .section
+            } // end .exams
+    
+            .control {
+                .btn {
+                    width: 100%;
+                    font-size: 13px;
+                    text-align: center;    
+                }
+            }
+    
+            &.checked {
+                .exams .section .task {
+                    .taskResult {
+                        width: 100%;
+                        // font-size: 13px;
+                        // padding: 0 0 5px 10px;
+                        // margin: 20px -20px 0 auto;
+                        // border-bottom: 1px solid $mBlue_l;
+                        
+                        .item {
+                            // margin-right: 8px;
+                            .num {
+                                // font-size: 18px;
+                            }
+                            .max {
+                                // bottom: -5px;
+                                // right: -5px;
+                                // opacity: .5;
+                                // font-size: 10px;
+                                // padding-left: 1px;
+                            }
+                        }
+                    }
+                } // end .task
+    
+                .control {
+                    flex-direction: column;
+                    .result {
+                        .item {
+                            font-size: 13px;
+                            .num { font-size: 22px; }
+                            .max {
+                                top: -2px;
+                                right: -7px;
+                                font-size: 11px;
+                            }
+                        }
+                    }
+
+                    .btn.next {
+                        display: block;
+                        // width: 100%;
+                        text-align: center;
+                        margin-top: 10px;
+                    }
+
+                    &.full {
+                        .endMessage {
+                            margin-top: 5px;
+                            font-size: 13px;
+                            line-height: 1.5;
+                        }
+                        .back {
+                            width: 100%;
+                            margin-top: 20px;
+                        }
+                    }
+                } // end control
+            } // end .checked
+        } // end .content
+    } // end .pageExam
+}
+
+// .header {
+//     $navClr: $mOrange_d;
+//     .navbar {
+//         .logo {
+//             background: none;
+//             a {
+//                 color: $navClr;
+//                 font-weight: 500;
+//
+//                 span { color: $navClr; }
+//                 &:hover { color: #FB7246; span {color: #EE3B51;} }
+//             }
+//         } // end .logo
+//         .menu {
+//             border-left: 1px solid $navClr;
+//             .item {
+//                 color: $navClr;
+//                 &:hover, &.active { border-top-color: $navClr; color: $navClr; }
+//                 &.active { border-bottom-color: $navClr; font-weight: 600; }
+//             }
+//         } // end .menu
+//         .auth {
+//             color: $navClr;
+//             opacity: 1;
+//
+//             .user {
+//                 .notification { border-color: $navClr; }
+//                 .info {
+//                     .ava { border-color: $navClr; }
+//                     &.active, &:hover {
+//                         cursor: pointer;
+//                         .nick {
+//                             border-top-color: $navClr;
+//                             color: $navClr;
+//                         }
+//                         .ava {border-color: $navClr;}
+//                     }
+//                 }
+//             } // end user
+//
+//             .lvlBar {
+//                 border-top-color: $navClr;
+//                 .progress { background: $navClr; }
+//             }
+//         } // end auth
+//     } // end .navbar
+// } // end .header

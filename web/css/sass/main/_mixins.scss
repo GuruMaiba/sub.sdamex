@@ -1,0 +1,46 @@
+// MIXINS
+// -----------------------
+@import "../globalStyle/_mixins.scss";
+
+// Часто используемый блок автора
+@mixin author($clr: #fff, $r: 0, $brdW: 0, $nickSize: 20px, $nameSize: 0)
+{
+    img { @include ava($r, $brdW, $clr) }
+    @if $nameSize != 0 {
+        .appeal {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            color: $clr;
+
+            .name { font-size: $nameSize; }
+            .nick {
+                font-size: $nickSize;
+                font-weight: bold;
+            }
+        } // end .appeal
+    } @else {
+        .nick {
+            font-size: $nickSize;
+            vertical-align: middle;
+        }
+    }
+}
+
+// Блок набранных и необходимых поинтов
+@mixin points($myClr, $myFS, $myLH, $nClr, $ta: left, $ff: 'Rubik')
+{
+    display: flex;
+    flex-direction: column;
+    font-family: $ff;
+    font-weight: 600;
+    text-align: $ta;
+
+    .myPoints {
+        color: $myClr;
+        font-size: $myFS;
+        line-height: $myLH;
+        transition: all .3s ease;
+    }
+    .needPoints { color: $nClr; }
+}

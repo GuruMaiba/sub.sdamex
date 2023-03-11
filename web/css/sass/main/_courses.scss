@@ -1,0 +1,450 @@
+.pageTop.topCourses {
+    .banner.ogeVSege {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-family: 'Rubik';
+        // margin-top: 40px;
+        background: url('images/ogeVSege.jpg') center center / cover no-repeat;
+
+        %course {
+            width: 40%;
+
+            .title {
+                font-size: 70px;
+            }
+
+            .desc {
+                font-size: 18px;
+                margin: 7px 0 30px 0;
+            }
+
+            .buy {
+                display: flex;
+                justify-content: space-between;
+
+                .action {
+                    .btn {
+                        margin-bottom: 5px;
+                        background: $mCrimson_m;
+                        &:hover { background: $mCrimson_d; }
+                    }
+
+                    .tryFree {
+                        color: $mCrimson_l;
+                        font-size: 15px;
+                        font-style: italic;
+                        text-shadow: 0 0 5px #000;
+                        text-transform: lowercase;
+                        border-bottom: 1px dashed $mCrimson_l;
+
+                        &:hover {
+                            color: $mCrimson_m;
+                            border-bottom: 1px solid $mCrimson_m;
+                        }
+                    }
+                }
+
+                .cost {
+                    position: relative;
+                    font-size: 30px;
+                    font-weight: 500;
+
+                    .rub { font-size: 23px; }
+                    .month {
+                        font-size: 15px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+        }
+
+        .bg {
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            // right: 0;
+            // bottom: 0;
+            // background: rgba($mOrange_d, .4);
+        }
+
+        .oge {
+            position: relative;
+            @extend %course;
+            padding-bottom: 50px;
+
+            .cost {
+                text-align: right;
+                padding-right: 20px;
+            }
+        }
+
+        .brdVS {
+            position: relative;
+            background: #fff;
+            width: 5px;
+            height: 80%;
+            transform: rotate(10deg);
+        }
+
+        .ege {
+            position: relative;
+            @extend %course;
+            text-align: right;
+            padding-top: 50px;
+            .cost {
+                text-align: left;
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+.pageCourses {
+    width: 90%;
+    margin: 20px auto 0 auto;
+
+    .list {
+        .course {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-top: 70px;
+
+            .titleTest {
+                font-size: 40px;
+                font-family: "Rubik";
+                font-weight: 500;
+                line-height: .8;
+                margin-left: 10px;
+                // color: $mOrange_d;
+                transition: all .3s ease;
+            }
+
+            hr {
+                text-align: right;
+                margin: 15px 0 15px auto;
+                width: 80%;
+                border-bottom: 2px solid $mBlue_d;
+                transition: all .3s ease;
+            }
+
+            .desc {
+                display: flex;
+            }
+
+            &:hover {
+                .titleTest { color: $mCrimson_m;}
+                hr {
+                    border-bottom-color: $mCrimson_m;
+                    width: 100%;
+                }
+                .img {
+                    img {width: 110%; height: 110%;}
+                    .bg {
+                        background: rgba($mBlue_d, .4);
+                        &:before { opacity: 1; }
+                    }
+                }
+            }
+
+            .img {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70%;
+                height: 300px;
+                border-radius: 20px;
+                box-shadow: 0 6px 20px rgba(#000, .4);
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all .3s ease;
+                }
+
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 20px;
+                    background: rgba($mBlue_d, .2);
+                    transition: all .3s ease;
+
+                    &:before {
+                        content: 'ПОДРОБНЕЕ';
+                        font-size: 45px;
+                        color: #fff;
+                        text-shadow: 0 0 10px #000;
+                        font-family: 'Rubik';
+                        font-weight: bold;
+                        opacity: 0;
+                        transition: all .3s ease;
+                    }
+                }
+
+                .title {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-family: "Rubik";
+                    font-size: 45px;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 0 5px;
+                    // text-transform: uppercase;
+                    text-shadow: 0 0 15px rgba(#000, 1);
+                    opacity: 1;
+                    transition: all .3s ease;
+                }
+            }
+
+            &.active {
+                .info {
+                    // display: flex;
+
+                    .item .progress {
+                        .number { color: $mCrimson_m; }
+                        .borders .circle {
+                            .border:before { border-color: rgba($mBlue_l, .4); }
+                            &.rightActive, &.leftActive {
+                                display: block;
+                                .border:before { border-color: rgba($mCrimson_m, .7); }
+                            }
+                        }
+                        &.allProgress {display: block;}
+                    }
+                }
+            }
+
+            .info {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 30%;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: $mBlue_l;
+
+                    .progress {
+                        position: relative;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 40px;
+                        height: 40px;
+
+                        .number { position: relative; }
+
+                        .borders {
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+
+                            .circle {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                transition: all .3s ease;
+
+                                .border {
+                                    width: 50%;
+                                    height: 100%;
+                                    overflow: hidden;
+                                    background: $mBG;
+
+                                    &:before {
+                                        content: '';
+                                        display: block;
+                                        width: 36px;
+                                        height: 36px;
+                                        border-radius: 100px;
+                                        border: 2px solid $mBlue_d;
+                                    }
+                                }
+
+                                &.bg .border {width: 100%;}
+                                &.rightActive, &.leftActive { display: none; }
+                            } // end .circle
+                        } // end .borders
+
+                        &.active {
+                            .number { color: $mCrimson_m; }
+                            .borders .circle {
+                                .border:before { border-color: rgba($mBlue_l, .4); }
+                                &.rightActive, &.leftActive {
+                                    display: block;
+                                    .border:before { border-color: rgba($mCrimson_m, .7); }
+                                }
+                            }
+                            &.allProgress {display: block;}
+                        }
+                    } // end .progress
+
+                    &.allProgress {
+                        display: none;
+                        font-size: 30px;
+                        color: $mBlue_d;
+
+                        .progress {
+                            width: 60px;
+                            height: 60px;
+
+                            .borders .circle {
+                                .border:before { border-color: rgba($mBlue_l, .3); }
+                                &.rightActive, &.leftActive {
+                                    // display: block;
+                                    .border:before { border-color: $mCrimson_m; }
+                                }
+                            }
+
+                            .borders .circle .border:before {
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 100px;
+                                border-width: 15px;
+                            }
+                        }
+                    }
+                } // end .item
+
+                .cost {
+                    font-size: 30px;
+                }
+            }
+
+            &.leftImg .info .item {
+                margin: 5px 0 5px 40px;
+                .progress { min-width: 40px; margin-right: 10px; }
+                &.allProgress { margin: 0 0 10px 30px; }
+            }
+
+            // &.rightImg {
+            //     text-align: right;
+            //     .desc {
+            //         flex-direction: row-reverse;
+            //     }
+            //     hr {
+            //         text-align: left;
+            //         margin: 15px auto 15px 0;
+            //     }
+            //     .info .item {
+            //         flex-direction: row-reverse;
+            //         margin: 5px 40px 5px 0;
+            //         .progress {margin-left: 10px;}
+            //         &.allProgress { margin: 0 30px 10px 0; }
+            //     }
+            // }
+        }
+    }
+
+    @extend %defMess;
+    .default { padding-top: 40px; }
+}
+
+@media (max-width: 1360px) {
+    .pageCourses {
+        .default { font-size: 50px; }
+    }// end .pageCourses
+}
+
+@media (max-width: 1024px) {
+    .pageCourses {
+        .default { font-size: 40px; }
+    }// end .pageCourses
+}
+
+@media (max-width: 768px) {
+    .pageCourses {
+        // width: 90%;
+        // margin: 20px auto 0 auto;
+
+        .list {
+            .course {
+                // margin-top: 70px;
+
+                // .titleTest {
+                //     font-size: 40px;
+                //     font-family: "Rubik";
+                //     font-weight: 500;
+                //     line-height: .8;
+                //     margin-left: 10px;
+                //     // color: $mOrange_d;
+                //     transition: all .3s ease;
+                // }
+
+                hr {
+                    margin: 20px 0 10px auto;
+                }
+
+                .desc {
+                    flex-direction: column;
+                }
+
+                .img {
+                    width: 100%;
+                    height: 250px;
+                    border-radius: 10px;
+                    box-shadow: 0 6px 10px rgba(#000, .4);
+
+                    .bg {
+                        border-radius: 10px;
+                        &:before {
+                            font-size: 30px;
+                            font-weight: 500;
+                            letter-spacing: 4px;
+                        }
+                    }
+                }
+
+                .info { display: none; }
+
+                // &.leftImg .info .item {
+                //     margin: 5px 0 5px 25%;
+                //     .progress { margin-right: 10px; }
+                //     &.allProgress { margin: 0 0 10px 30px; }
+                // }
+
+                // &.rightImg {
+                //     text-align: right;
+                //     .desc {
+                //         flex-direction: row-reverse;
+                //     }
+                //     hr {
+                //         text-align: left;
+                //         margin: 15px auto 15px 0;
+                //     }
+                //     .info .item {
+                //         flex-direction: row-reverse;
+                //         margin: 5px 40px 5px 0;
+                //         .progress {margin-left: 10px;}
+                //         &.allProgress { margin: 0 30px 10px 0; }
+                //     }
+                // }
+            }
+        }
+        .default { font-size: 20px; }
+    }// end .pageCourses
+}

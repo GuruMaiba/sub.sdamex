@@ -1,0 +1,284 @@
+.pageCheck {
+    padding-bottom: 80px;
+    .pTitle {
+        font-family: Rubik;
+        font-size: 50px;
+        border-bottom: 2px solid $mBlue_l;
+        margin-top: 70px;
+        padding: 0 20px 10px;
+    }
+
+    .list {
+        .exam {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            color: $mBlue_l;
+            padding: 10px 20px;
+            margin: 20px auto 0;
+            border-left: 3px solid $mBlue_l;
+            box-shadow: 0 0 10px rgba($mGray, .3);
+
+            .cont {
+                margin-right: 20px;
+                width: calc(100% - 200px);
+
+                .name {
+                    // font-family: 'Rubik';
+                    font-size: 33px;
+                    // font-weight: 400;
+                    border-bottom: 1px solid $mBlue_l;
+                    padding-bottom: 10px;
+                    transition: all .3s ease;
+                }
+
+                .comment {
+                    white-space: pre-wrap;
+                    font-style: italic;
+                    font-size: 18px;
+                    padding: 10px 0;
+                    opacity: .8;
+                    .cop { opacity: .5; }
+                    &.def { opacity: .5; }
+                }
+
+                .reply {
+                    display: none;
+                    width: 90%;
+                    padding: 10px;
+                    margin: 5px auto 0;
+                    border-left: 1px solid $mBlue_l;
+
+                    .task {
+                        white-space: pre-wrap;
+                        font-size: 18px;
+                        font-weight: 500;
+                        font-style: italic;
+                    }
+
+                    .text {
+                        white-space: pre-wrap;
+                        margin: 15px 0;
+                        p { margin-top: 10px; }
+                    }
+                    
+                    .answer {
+                        color: #fff;
+                        padding: 10px;
+                        background-color: $mBlue_l;
+                        transition: all .3s ease;
+
+                        a {
+                            color: #fff;
+                            font-size: 13px;
+                            font-style: italic;
+                            text-align: center;
+                            opacity: .7;
+                            &:hover { text-decoration: underline; }
+                        }
+                    }
+                }
+            }
+
+            .results {
+                position: relative;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                min-height: 100px;
+                margin-top: 10px;
+                font-style: italic;
+                border-left: 1px solid rgba($mBlue_l, .3);
+
+                .item {
+                    text-align: center;
+                    margin: 0 10px;
+
+                    label {
+                        font-size: 15px;
+                        opacity: .8;
+                    }
+
+                    .current {
+                        font-size: 25px;
+                        font-weight: 500;
+                        transition: all .3s ease;
+                        &.def { color: rgba($mBlue_l, .2); }
+                    }
+
+                    .all {
+                        font-size: 15px;
+                        opacity: .5;
+                    }
+
+                    &.mark {
+                        margin-top: 40px;
+                        .numb {
+                            color: $mOrange_m;
+                            font-weight: 500;
+                            font-size: 50px;
+                            line-height: 0;
+                            transition: all .3s ease;
+                            &.def { color: rgba($mBlue_l, .2); }
+                        }
+                    }
+                }
+            } // end .results
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 3px rgba($mGray, .3);
+                border-color: $mOrange_l;
+                .cont {
+                    .name {
+                        color: $mOrange_m;
+                    }
+                }
+            }
+        } // end .exam
+    } // end .list
+    
+    @extend %cap;
+} // end .page
+
+@media screen and (max-width: 1024px) {
+    .pageCheck {
+        padding: 0 10px 50px;
+
+        .pTitle {
+            font-size: 30px;
+            margin-top: 40px;
+            padding: 0 10px 5px;
+        }
+    
+        .list {
+            .exam {
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                // padding: 10px 20px;
+                // margin: 20px auto 0;
+                // border-left: 3px solid $mBlue_l;
+                // box-shadow: 0 0 10px rgba($mGray, .3);
+    
+                .cont {
+                    margin-right: 0;
+                    width: 100%;
+    
+                    .name {
+                        font-size: 25px;
+                        padding-bottom: 7px;
+                    }
+    
+                    .comment {
+                        font-size: 15px;
+                        padding: 10px 0;
+                    }
+    
+                    .reply {
+                        width: 95%;
+                        padding: 0 0 0 13px;
+                        // margin: 5px auto 0;
+                        // border-left: 1px solid $mBlue_l;
+    
+                        .task { font-size: 15px; }
+                        .text { margin: 20px 0; font-size: 15px; }
+                        .answer {
+                            font-size: 15px;    
+                            a { font-size: 12px; }
+                        }
+                    }
+                }
+    
+                .results {
+                    width: 100%;
+                    min-height: 60px;
+                    margin-top: 15px;
+                    border-left: 0;
+                    border-top: 1px solid rgba($mBlue_l, .3);
+    
+                    .item {    
+                        label { font-size: 13px; }
+                        .current { font-size: 20px; }
+                        .all { font-size: 13px; }
+    
+                        &.mark {
+                            margin-top: 40px;
+                            .numb { font-size: 40px; }
+                        }
+                    }
+                } // end .results
+            } // end .exam
+        } // end .list
+    } // end .page
+}
+
+@media screen and (max-width: 768px) {
+    .pageCheck {
+        padding: 0 10px 50px;
+
+        .pTitle {
+            font-size: 20px;
+            font-weight: 500; 
+            margin-top: 40px;
+            padding: 0 10px 5px;
+            border-width: 1px;
+        }
+    
+        .list {
+            .exam {
+                padding: 10px;
+                margin-top: 15px;
+                border-width: 1px;
+    
+                .cont {
+                    .name {
+                        font-size: 17px;
+                        padding-bottom: 7px;
+                        border-color: rgba($mBlue_l, .5);
+                    }
+    
+                    .comment {
+                        font-size: 13px;
+                        padding: 7px 0;
+                    }
+    
+                    .reply {
+                        width: 100%;
+                        padding: 10px 10px 0 0;
+                        // margin: 5px auto 0;
+                        border-left: 0;
+                        border-top: 1px solid rgba($mBlue_l, .5);
+    
+                        .task { font-size: 13px; }
+                        .text { margin: 15px 0; font-size: 13px; }
+                        .answer {
+                            font-size: 13px;    
+                            a { font-size: 10px; }
+                        }
+                    }
+                }
+    
+                .results {
+                    min-height: 50px;
+    
+                    .item {    
+                        label { font-size: 11px; }
+                        .current { font-size: 17px; }
+                        .all { font-size: 11px; }
+    
+                        &.mark {
+                            margin-top: 30px;
+                            .numb { font-size: 30px; }
+                        }
+                    }
+                } // end .results
+            } // end .exam
+        } // end .list
+    } // end .page
+}

@@ -1,0 +1,26 @@
+{
+  "name": "sdamenglish",
+  "version": "1.0.0",
+  "description": "Cool Gulp",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "StGuruMaiba",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "imagemin-jpeg-recompress": "^7.0.0",
+    "imagemin-pngquant": "^8.0.0"
+  }
+}

@@ -1,0 +1,863 @@
+.pageTop.topWebinar {
+    .pageTitle {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        .title {
+            font-family: 'Literata';
+            font-size: 70px;
+            color: #fff;
+            width: 80%;
+            text-align: center;
+            text-shadow: 0 0 10px #000;
+            text-transform: uppercase;
+        }
+
+        .timer {
+            color: #fff;
+            margin-top: 15px;
+            opacity: .4;
+            transition: all .3s ease;
+            .date {
+                bottom: -35px;
+                left: 70px;
+                right: 70px;
+                text-align: center;
+                opacity: 1;
+                padding: 10px 0px 0 0px;
+                margin: 0 auto;
+                border-top: 2px solid #fff;
+            }
+            &:hover {cursor: default; opacity:.8;}
+        }
+
+        .comingSoon {
+            // position:relative;
+            color: #fff;
+            font-size: 20px;
+            font-style: italic;
+            margin-top: 20px;
+            padding: 20px 80px;
+            border-top: 1px solid #fff;
+            opacity: .5;
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .countUsers {
+                color: $mCrimson_m;
+                font-size: 25px;
+                font-weight: bold;
+                vertical-align: middle;
+                margin-bottom: 10px;
+            }
+        } // end .bottom
+    } // end .pageTitle
+
+    .banner.newWebinar {
+        height: 100%;
+        .cont {
+            justify-content: center;
+            align-items: center;
+            .title {
+                font-size: 70px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .timer {
+                color: #fff;
+                opacity: .4;
+                transition: all .3s ease;
+                .date {
+                    bottom: -30px;
+                    left: 70px;
+                    right: 70px;
+                    // width: 80%;
+                    text-align: center;
+                    // right: 0;
+                    opacity: 1;
+                    padding: 10px 0px 0 0px;
+                    margin: 0 auto;
+                    border-top: 2px solid #fff;
+                }
+                &:hover {cursor: default; opacity:.8;}
+            }
+            .bottom {
+                position: absolute;
+                bottom: 0px;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                .countUsers {
+                    color: $mCrimson_m;
+                    font-size: 25px;
+                    font-weight: bold;
+                    vertical-align: middle;
+                    margin-bottom: 10px;
+                }
+
+                .btn {
+                    color: $mCrimson_l;
+                    border: 2px solid transparent;
+                    border-top-color: $mCrimson_l;
+                    padding: 10px 30px;
+                    font-size: 25px;
+                    font-weight: 500;
+                    border-radius: 0;
+                    background: #fff;
+
+                    &:hover { border-bottom-color: $mCrimson_l; }
+                }
+            } // end .bottom
+        } // end .cont
+    } // end .newWebinar
+
+    .banner.video {
+        position: relative;
+        height: 92%;
+        padding: 0;
+        margin-top: 10px;
+        box-shadow: 0 0px 10px rgba(black, .5);
+        overflow: hidden;
+
+        .live {
+            width: calc(100% - 300px);
+            height: 100%;
+            border-radius: 40px 0 0 5px;
+            background: rgba($mBlue_d, .5);
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                border-radius: 40px 0 0 5px;
+                border: 0;
+            }
+        }
+
+        .chat {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            border-radius: 0 5px 40px 0;
+            overflow: hidden;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        } // end .chat
+
+        .past {
+            width: 100%;
+            height: 100%;
+            border-radius: 40px 5px;
+            overflow: hidden;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    } // end .video
+} // end .top
+
+.webinar {
+    position: relative;
+    padding-top: 30px;
+
+    .mainInfo.author {
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 30%;
+        min-width: 300px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $mBlue_l;
+
+        img { @include ava(50px, 1px, $mBlue_l); }
+        .appeal {
+            color: $mBlue_l;
+            margin-left: 5px;
+
+            .name { font-size: 16px; transition: all .3s ease; }
+            .nick {
+                font-size: 22px;
+                font-weight: bold;
+                transition: all .3s ease;
+            }
+        } // end .appeal
+        
+        &:hover {
+            img { border-color: $mCrimson_l; }
+            .appeal { color: $mCrimson_l; }
+        }
+    } // end .author
+
+    .courses {
+        color: rgba($mGray, .7);
+        font-size: 18px;
+        font-style: italic;
+        a {
+            color: rgba($mGray, .7);
+            border-bottom: 1px solid transparent;
+            &:hover {
+                color: $mOrange_l;
+                border-bottom-color: $mOrange_l;
+            }
+        }
+    }
+
+    @extend %ttlDescLinks;
+
+    .mainTitle {
+        color: $mBlue_l;
+        margin-top: 20px;
+    }
+
+    .comments {
+        width: 85%;
+        margin: 150px auto 0;
+
+        .comTitle {
+            position: relative;
+            font-family: 'Rubik';
+            font-size: 30px;
+            font-weight: 500;
+            // letter-spacing: -1px;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 2px solid $mBlue_l;
+            padding: 0 0 10px 0px;
+            margin-bottom: 50px;
+
+            .count {
+                position: absolute;
+                right: 0;
+                // color: $mOrange_m;
+                opacity: .5;
+                transition: all .3s ease;
+                &:hover { opacity: 1; }
+            }
+        }
+
+        .banComments {
+            text-align: right;
+            font-style: italic;
+            font-size: 20px;
+            padding: 0 0 40px;
+            opacity: .8;
+        }
+
+        .item {
+            position: relative;
+            margin: 30px 0 0 55px;
+
+            .info {
+                .author {
+                    // school/_mixins.scss
+                    @include author ($mBlue_l, 40px, 0, 20px);
+                    img {
+                        position: absolute;
+                        top: 3px;
+                        left: -55px;
+                    }
+                    .nick {
+                        font-weight: bold;
+                        transition: all .3s ease;
+                    }
+                    &:hover {
+                        img { border-color: $mCrimson_l; }
+                        .nick {color: $mCrimson_l;}
+                    }
+                }
+                .date, .control .middot {
+                    font-size: 12px;
+                    font-style: italic;
+                    opacity: .5;
+                }
+
+                .control {
+                    display: inline-block;
+                    margin-bottom: -10px;
+                    opacity: 0;
+                    transition: all .2s ease;
+
+                    i {
+                        cursor: pointer;
+                        opacity: .4;
+                        transition: all .3s ease;
+                        &.edit { font-size: 15px; }
+                        &.del { font-size: 16px; }
+                        &:hover { opacity: .8; color: $mOrange_m; }
+                    }
+                }
+            }
+
+            .text {
+                position: relative;
+                margin-top: 5px;
+
+                textarea {
+                    width: 100%;
+                    height: 50px;
+                    resize: vertical;
+                    font-size: 16px;
+                    color: $mBlue_l;
+                    border: none;
+                    border-bottom: 1px solid $mBlue_l;
+                }
+
+                .send {
+                    cursor: pointer;
+                    position: absolute;
+                    top: -10px;
+                    left: calc(100% + 15px);
+                    color: $mBlue_l;
+                    font-size: 30px;
+                    line-height: 0;
+                    transition: all .3s ease;
+                    opacity: .8;
+                    &:hover {color: $mOrange_m;}
+                }
+
+                .error {
+                    color: $mRed;
+                    font-style: italic;
+                    font-size: 14px;
+                    text-align: right;
+                    padding-top: 5px;
+                }
+            }
+
+            &:hover {
+                .info .control { opacity: 1; }
+            }
+        } // end .item
+    } // end .reviews
+} // pageWebinar
+
+@media (max-width: 1360px) {
+    .wrap .content .pageTop.topWebinar {
+        .pageTitle {
+            // .comingSoon {
+            //     // position:relative;
+            //     color: #fff;
+            //     font-size: 20px;
+            //     font-style: italic;
+            //     margin-top: 20px;
+            //     padding: 20px 80px;
+            //     border-top: 1px solid #fff;
+            //     opacity: .5;
+            // }
+    
+            .bottom {
+                .countUsers {
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+            } // end .bottom
+        } // end .pageTitle
+    
+        .banner.newWebinar {
+            height: 100%;
+            .cont {
+                justify-content: center;
+                align-items: center;
+                .title {
+                    font-size: 70px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+                .timer {
+                    color: #fff;
+                    opacity: .4;
+                    transition: all .3s ease;
+                    .date {
+                        bottom: -30px;
+                        left: 70px;
+                        right: 70px;
+                        // width: 80%;
+                        text-align: center;
+                        // right: 0;
+                        opacity: 1;
+                        padding: 10px 0px 0 0px;
+                        margin: 0 auto;
+                        border-top: 2px solid #fff;
+                    }
+                    &:hover {cursor: default; opacity:.8;}
+                }
+                .bottom {
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+    
+                    .countUsers {
+                        color: $mCrimson_m;
+                        font-size: 25px;
+                        font-weight: bold;
+                        vertical-align: middle;
+                        margin-bottom: 10px;
+                    }
+    
+                    .btn {
+                        color: $mCrimson_l;
+                        border: 2px solid transparent;
+                        border-top-color: $mCrimson_l;
+                        padding: 10px 30px;
+                        font-size: 25px;
+                        font-weight: 500;
+                        border-radius: 0;
+                        background: #fff;
+    
+                        &:hover { border-bottom-color: $mCrimson_l; }
+                    }
+                } // end .bottom
+            } // end .cont
+        } // end .newWebinar
+    
+        .banner.video {
+            position: relative;
+            display: flex;
+            height: 92%;
+            padding: 0;
+            margin-top: 10px;
+            box-shadow: 0 0px 10px rgba(black, .5);
+            overflow: hidden;
+    
+            .live {
+                width: calc(100% - 300px);
+                height: 100%;
+                border-radius: 40px 0 0 5px;
+                background: rgba($mBlue_d, .5);
+    
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 40px 0 0 5px;
+                    border: 0;
+                }
+            }
+    
+            .past {
+                width: 100%;
+                height: 100%;
+                border-radius: 40px 5px;
+                overflow: hidden;
+    
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        } // end .video
+    } // end .top
+    
+    .webinar {
+        position: relative;
+        padding-top: 30px;
+    
+        .mainInfo.author {
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            width: 30%;
+            min-width: 300px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid $mBlue_l;
+    
+            .appeal {
+                color: $mBlue_l;
+                margin-left: 5px;
+    
+                .name { font-size: 16px; transition: all .3s ease; }
+                .nick {
+                    font-size: 22px;
+                    font-weight: bold;
+                    transition: all .3s ease;
+                }
+            } // end .appeal
+            
+            &:hover {
+                img { border-color: $mCrimson_l; }
+                .appeal { color: $mCrimson_l; }
+            }
+        } // end .author
+    
+        .mainTitle {
+            color: $mBlue_l;
+            margin-top: 20px;
+        }
+    
+        .comments {
+            width: 85%;
+            margin: 40px auto 0;
+    
+            .comTitle {
+                position: relative;
+                font-family: 'Rubik';
+                font-size: 30px;
+                font-weight: 500;
+                // letter-spacing: -1px;
+                text-align: center;
+                text-transform: uppercase;
+                border-bottom: 2px solid $mBlue_l;
+                padding: 0 0 10px 0px;
+                margin-bottom: 50px;
+    
+                .count {
+                    position: absolute;
+                    right: 0;
+                    // color: $mOrange_m;
+                    opacity: .5;
+                    transition: all .3s ease;
+                    &:hover { opacity: 1; }
+                }
+            }
+    
+            .banComments {
+                text-align: right;
+                font-style: italic;
+                font-size: 20px;
+                padding: 0 0 40px;
+                opacity: .8;
+            }
+    
+            .item {
+                position: relative;
+                margin: 30px 0 0 55px;
+    
+                .info {
+                    .author {
+                        // school/_mixins.scss
+                        img {
+                            position: absolute;
+                            top: 3px;
+                            left: -55px;
+                        }
+                        .nick {
+                            font-weight: bold;
+                            transition: all .3s ease;
+                        }
+                        &:hover {
+                            img { border-color: $mCrimson_l; }
+                            .nick {color: $mCrimson_l;}
+                        }
+                    }
+                    .date, .control .middot {
+                        font-size: 12px;
+                        font-style: italic;
+                        opacity: .5;
+                    }
+    
+                    .control {
+                        display: inline-block;
+                        margin-bottom: -10px;
+                        opacity: 0;
+                        transition: all .2s ease;
+    
+                        i {
+                            cursor: pointer;
+                            opacity: .4;
+                            transition: all .3s ease;
+                            &.edit { font-size: 15px; }
+                            &.del { font-size: 16px; }
+                            &:hover { opacity: .8; color: $mOrange_m; }
+                        }
+                    }
+                }
+    
+                .text {
+                    position: relative;
+                    margin-top: 5px;
+    
+                    textarea {
+                        width: 100%;
+                        height: 50px;
+                        resize: vertical;
+                        font-size: 16px;
+                        color: $mBlue_l;
+                        border: none;
+                        border-bottom: 1px solid $mBlue_l;
+                    }
+    
+                    .send {
+                        cursor: pointer;
+                        position: absolute;
+                        top: -10px;
+                        left: calc(100% + 15px);
+                        color: $mBlue_l;
+                        font-size: 30px;
+                        line-height: 0;
+                        transition: all .3s ease;
+                        opacity: .8;
+                        &:hover {color: $mOrange_m;}
+                    }
+    
+                    .error {
+                        color: $mRed;
+                        font-style: italic;
+                        font-size: 14px;
+                        text-align: right;
+                        padding-top: 5px;
+                    }
+                }
+    
+                &:hover {
+                    .info .control { opacity: 1; }
+                }
+            } // end .item
+        } // end .reviews
+    } // pageWebinar
+}
+
+@media (max-width: 1024px) {
+    .wrap .content .pageTop.topWebinar {
+        height: 100vh;
+        padding-top: 0;
+        align-items: center;
+
+        .pageTitle {
+            padding-bottom: 0;
+        } // end .pageTitle
+
+        .banner.video {
+            height: 80%;
+            margin-top: 10%;
+        } // end .video
+    }
+
+    .webinar {
+        // padding: 40px;
+    
+        .mainInfo.author {
+            padding-bottom: 15px;
+    
+            img {
+                width: 35px;
+                height: 35px;
+            }
+            .appeal {
+                margin-left: 5px;
+                .name { font-size: 14px; }
+                .nick { font-size: 18px; }
+            } // end .appeal
+        } // end .author
+    
+        .comments {
+            width: 100%;
+            margin: 40px auto 0;
+    
+            .comTitle {
+                font-size: 20px;
+                text-align: center;
+                border-bottom-width: 1px;
+                margin-bottom: 30px;
+            }
+    
+            .banComments {
+                font-size: 17px;
+                padding: 0 0 30px;
+            }
+    
+            .item {
+                position: relative;
+                margin: 30px 0 0 40px;
+    
+                .info {
+                    .author {
+                        // school/_mixins.scss
+                        img {
+                            left: -40px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                        .nick { font-size: 18px; }
+                    }
+                    .date, .control .middot { font-size: 11px; }
+    
+                    .control {
+                        margin-bottom: -10px;
+                        i {
+                            &.edit { font-size: 12px; }
+                            &.del { font-size: 13px; }
+                        }
+                    }
+                }
+    
+                .text {
+                    margin-top: 5px;
+                    font-size: 14px;
+    
+                    textarea { font-size: 14px; }
+                    .send {
+                        top: -10px;
+                        left: calc(100% + 5px);
+                        font-size: 25px;
+                    }
+                    .error { font-size: 11px; }
+                }
+            } // end .item
+        } // end .reviews
+    } // pageWebinar
+}
+
+@media (max-width: 768px) {
+    .wrap .content .pageTop.topWebinar {
+        height: 100vh;
+        padding-top: 0;
+        align-items: center;
+
+        .pageTitle {
+            padding-bottom: 0;
+            // .comingSoon {
+            //     // position:relative;
+            //     color: #fff;
+            //     font-size: 20px;
+            //     font-style: italic;
+            //     margin-top: 20px;
+            //     padding: 20px 80px;
+            //     border-top: 1px solid #fff;
+            //     opacity: .5;
+            // }
+
+            .timer {
+                .date {
+                    width: 100%;
+                    bottom: -22px;
+                    left: 0;
+                    right: 0;
+                    padding: 5px 0px 0 0px;
+                    border-top-width: 1px;
+                }
+            }
+
+            .comingSoon {
+                width: 90%;
+                font-size: 13px;
+                text-align: center;
+                margin-top: 10px;
+                padding: 10px 30px;
+                border-top: 1px solid #fff;
+                opacity: .5;
+            }
+    
+            .bottom {
+                .countUsers {
+                    color: #fff;
+                    font-size: 18px;
+                }
+            } // end .bottom
+        } // end .pageTitle
+
+        .banner.video {
+            border-radius: 15px 0;
+    
+            .live {
+                width: 100%;
+                height: 35%;
+                border-radius: 15px 0 0 0px;
+                background: rgba($mBlue_d, .5);
+    
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 15px 0 0 0px;
+                }
+            }
+    
+            .chat {
+                top: 35%;
+                height: 65%;
+                width: 100%;
+            }
+            .past {
+                // height: 70%;
+                border-radius: 15px 0px;
+            }
+
+            &.start {
+                flex-direction: column;
+                height: 85%;
+                margin-top: 10%;
+            }
+
+            &.end {
+                height: 50%;
+            }
+        } // end .video
+    }
+
+    .webinar {
+        padding: 40px 10px 10px;
+    
+        .mainInfo.author {
+            width: 90%;
+            min-width: 0;
+        } // end .author
+
+        .courses { font-size: 15px; }
+        .comments {
+            width: 100%;
+            margin: 40px auto 0;
+    
+            .comTitle {
+                font-size: 16px;
+                border-bottom-width: 1px;
+                margin-bottom: 20px;
+            }
+    
+            .banComments {
+                font-size: 14px;
+                padding: 0 0 10px;
+                text-align: center;
+            }
+    
+            .item {
+                margin: 20px 0 0 0px;
+    
+                .info {
+                    .author {
+                        // school/_mixins.scss
+                        img { display: none; }
+                        .nick { font-size: 16px; }
+                    }
+                    .date, .control .middot { font-size: 11px; }
+    
+                    .control {
+                        i {
+                            &.edit { font-size: 10px; }
+                            &.del { font-size: 11px; }
+                        }
+                    }
+                }
+    
+                .text {
+                    font-size: 13px;
+                    white-space: pre-wrap;
+                    margin-top: 3px;
+    
+                    textarea { font-size: 13px; }
+                    .send {
+                        top: -21px;
+                        left: initial;
+                        right: 0;
+                        font-size: 15px;
+                    }
+                }
+            } // end .item
+        } // end .reviews
+    } // pageWebinar
+}

@@ -1,0 +1,152 @@
+/*
+* Bootstrap style
+* --------------------------------------------------
+*/
+
+    .hidden {
+        display: none !important;
+    }
+
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media (min-width: 1360px) { //  and (max-width: 1920px)
+        .container {
+            width: 1300px;
+        }
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1360px) {
+        .container {
+            width: 1000px;
+        }
+    }
+    
+    @media (min-width: 700px) and (max-width: 1024px) {
+        .container {
+            width: 700px;
+        }
+    }
+    
+    @media (max-width: 700px) {
+        .container {
+            width: 100%;
+        }
+    }
+
+    .nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            float: left;
+            padding-top: 17px;
+        }
+    }
+
+    .navRight {
+        float: right;
+        padding-right: 30px;
+
+        li { padding-left: 10px; }
+        a {
+            color: #119298;
+            &:hover { color: #1adce4; }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .visible-lg {
+            display: block !important;
+        }
+
+        .visible-md {
+            display: none !important;
+        }
+
+        .visible-sm {
+            display: none !important;
+        }
+
+        .visible-xs {
+            display: none !important;
+        }
+
+        .hidden-lg {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .visible-lg {
+            display: none !important;
+        }
+
+        .visible-md {
+            display: block !important;
+        }
+
+        .visible-sm {
+            display: none !important;
+        }
+
+        .visible-xs {
+            display: none !important;
+        }
+
+        .hidden-md {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 991px) and (min-width: 768px) {
+        .visible-lg {
+            display: none !important;
+        }
+
+        .visible-md {
+            display: none !important;
+        }
+
+        .visible-sm {
+            display: block !important;
+        }
+
+        .visible-xs {
+            display: none !important;
+        }
+
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .visible-lg {
+            display: none !important;
+        }
+
+        .visible-md {
+            display: none !important;
+        }
+
+        .visible-sm {
+            display: none !important;
+        }
+
+        .visible-xs {
+            display: block !important;
+        }
+
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+
+/*
+ * --------------------------------------------------
+ * Bootstrap style
+ */

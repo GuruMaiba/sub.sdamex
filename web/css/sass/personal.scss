@@ -1,0 +1,31 @@
+@import "globalStyle/_bootstrapStyle.scss";
+@import "globalStyle/_variables.scss";
+@import "personal/_mixins.scss";
+@import "personal/_univStyle.scss";
+@import "_common.scss";
+
+.personalArea {
+    position: relative;
+    min-height: 100%;
+
+    @import "personal/_layout.scss";
+    .content {
+        .container {
+            height: 100%;
+            padding: 60px 0 0 60px;
+        }
+        @media (max-width: 1360px) {
+            .container { padding: 50px 0 0 50px; }
+        }
+        @media (max-width: 700px) {
+            .container { padding: 40px 0 0; }
+        }
+        @import "personal/_profile.scss";
+        @import "personal/_messages.scss";
+        @import "personal/_dictionary.scss";
+        @import "personal/_events.scss";
+        @import "personal/_check.scss";
+        @import "personal/_settings.scss";
+        @import "personal/_notification.scss";
+    }
+}

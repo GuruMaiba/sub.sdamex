@@ -1,0 +1,410 @@
+$mainMenuWidth: 60px;
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $mainMenuWidth;
+    height: 100%;
+    background: $mBlue_m;
+    box-shadow: 5px 0 20px rgba(black, .2);
+    transition: all .3s ease;
+    z-index: 920;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        width: 100%;
+        height: $mainMenuWidth;
+        background: $mCrimson_l;
+        transition: all .3s ease;
+        svg { width: 70%; }
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(#fff, .2);
+        }
+    }
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: $mainMenuWidth;
+        color: #fff;
+
+        i {
+            font-size: 30px;
+            line-height: 0;
+        }
+        &:hover { background: rgba($mOrange_l, .8); }
+        &.active { background: $mOrange_l; }
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $mBlue_d;
+
+        .item {
+            height: calc(#{$mainMenuWidth} - 20px);
+            i { font-size: 20px; }
+            &:hover { background: rgba($mOrange_m, .7); }
+            &.active { background: $mOrange_m; }
+        }
+    }
+    
+    .close { display: none; }
+}
+
+.content {
+    height: 100%;
+    // padding-top: $mainMenuWidth;
+    background: #fff;
+
+    .submenu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - #{$mainMenuWidth});
+        height: $mainMenuWidth;
+        border-bottom: 1px solid rgba($mGray, .2);
+        background: $mBG;
+        z-index: 915;
+
+        .mobileMenuBtn {display: none;}
+
+        .switchSubject {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            @extend %disTxtSelect;
+
+            .siteName {
+                // cursor: default;
+                font-size: 20px;
+                font-weight: 500;
+                margin-left: 20px;
+                transition: all .3s ease;
+                span {
+                    color: $mCrimson_m;
+                    transition: all .3s ease;
+                }
+            }
+
+            .subsList {
+                position: absolute;
+                top: $mainMenuWidth;
+                max-height: 0px;
+                width: 100%;
+                padding: 0 10px;
+                background-color: rgba($mCrimson_l, 1);
+                transition: all .6s ease;
+                overflow: hidden;
+
+                .sub {
+                    cursor: pointer;
+                    display: inline-block;
+                    color: #fff;
+                    padding: 10px;
+                }
+            }
+
+            &:hover {
+                .siteName {
+                    color: $mCrimson_m;
+                    span { color: $mBlue_d; }
+                }
+                .subsList {
+                    // padding: 10px;
+                    max-height: 76px;
+                }
+            }
+        }
+
+        .user {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: $mBlue_l;
+
+            .lvl {
+                display: flex;
+                align-items: flex-end;
+                padding-right: 10px;
+                border-right: 1px solid $mBlue_d;
+
+                span {
+                    font-size: 30px;
+                    line-height: .9;
+                }
+            }
+
+            .info {
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 0 10px;
+
+                .nick {
+                    position: relative;
+                    font-size: 20px;
+                    color: $mBlue_l;
+                    // border: 5px solid transparent;
+                    padding: 5px;
+                    transition: all .3s ease;
+                }
+
+                .ava {
+                    position: relative;
+                    @include ava(35px, 1px, $mBlue_l);
+                }
+
+                .hoverBG {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 100%;
+                    background: $mOrange_l;
+                    transition: all .3s ease;
+                }
+
+                &:hover {
+                    .nick { color: #fff; }
+                    .ava { border-color: #fff; }
+                    .hoverBG { left: 0; }
+                }
+
+            }
+        }
+
+        .lvlBar {
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: rgba($mGray, .1);
+
+            .progress {
+                // float: right;
+                width: 70%;
+                height: 100%;
+                background: rgba($mOrange_m, 1);
+                transition: all .3s ease;
+            }
+        }
+    } // end .submenu
+} // end .content
+
+@media (max-width: 1360px) {
+    $mainMenuWidth: 50px;
+    .menu {
+        width: $mainMenuWidth;
+    
+        .logo { height: $mainMenuWidth; }    
+        .item {
+            height: $mainMenuWidth;
+            i { font-size: 25px; }
+        }
+    
+        .bottom {
+            .item {
+                height: calc(#{$mainMenuWidth} - 15px);
+                i { font-size: 15px; }
+            }
+        }
+    }
+    
+    .content {
+        .submenu {
+            width: calc(100% - #{$mainMenuWidth});
+            height: $mainMenuWidth;
+    
+            .switchSubject {
+                .siteName { font-size: 18px; }
+                .subsList { top: $mainMenuWidth; }
+            }
+    
+            .user {
+                .lvl {
+                    font-size: 13px;
+                    span { font-size: 25px; }
+                }
+    
+                .info {
+                    .nick { font-size: 18px; }
+    
+                    .ava {
+                        width: 30px;
+                        height: 30px;
+                        border-width: 1px;
+                    }
+    
+                    .hoverBG {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 100%;
+                        background: $mOrange_l;
+                        transition: all .3s ease;
+                    }
+    
+                    &:hover {
+                        .nick { color: #fff; }
+                        .ava { border-color: #fff; }
+                        .hoverBG { left: 0; }
+                    }
+    
+                }
+            }
+    
+            .lvlBar {
+                position: absolute;
+                bottom: -2px;
+                width: 100%;
+                height: 2px;
+                background: rgba($mGray, .1);
+    
+                .progress {
+                    // float: right;
+                    width: 70%;
+                    height: 100%;
+                    background: rgba($mOrange_m, 1);
+                    transition: all .3s ease;
+                }
+            }
+        } // end .submenu
+    } // end .content
+}
+
+// @media (max-width: 1024px) {
+    
+// }
+
+@media (max-width: 700px) {
+    $mainMenuWidth: 40px;
+    .menu {
+        top: -360px; // +40 на всякий
+        height: auto;
+        padding-bottom: calc(#{$mainMenuWidth} * 3);
+        width: $mainMenuWidth;
+        box-shadow: 3px 5px 10px rgba($mGray, .3);
+        // z-index: 910;
+
+        .logo { height: $mainMenuWidth; }
+        .item {
+            height: $mainMenuWidth;
+            i { font-size: 17px; }
+        }
+
+        .bottom {
+            z-index: 912;
+            .item {
+                height: calc(#{$mainMenuWidth} - 15px);
+                i { font-size: 12px; }
+                &:hover { background: rgba($mOrange_m, .7); }
+                &.active { background: $mOrange_m; }
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            left: calc(100% + 10px);
+            display: block;
+            color: rgba($mBlue_l, .7);
+            font-size: 18px;
+            transition: all .3s ease;
+            z-index: 911;
+
+            &:hover {
+                cursor: pointer;
+                color: $mCrimson_m;
+            }
+        }
+
+        &.active { top: 0; }
+    }
+
+    .content {
+        .submenu {
+            width: 100%;
+            height: $mainMenuWidth;
+
+            .mobileMenuBtn {
+                display: block;
+                width: 20%;
+                padding-left: 10px;
+                font-size: 20px;
+                line-height: .5;
+                transition: all .3s ease;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $mCrimson_m;
+                }
+            }
+
+            .switchSubject {
+                width: 60%;
+                justify-content: center;
+
+                .siteName {
+                    font-size: 15px;
+                    margin-left: 0px;
+                }
+
+                .subsList {
+                    top: $mainMenuWidth;
+                    left: 0;
+                    padding: 0 10px;
+                    // transition: all .6s ease;
+
+                    .sub {
+                        font-size: 12px;
+                        padding: 10px 5px 0;
+                    }
+                }
+
+                &:hover {
+                    .subsList {
+                        padding-bottom: 5px;
+                        max-height: 60px;
+                    }
+                }
+            }
+
+            .user {
+                justify-content: flex-end;
+                width: 20%;
+
+                .lvl {
+                    border-right: none;
+                    padding-right: 10px;
+                    font-size: 10px;
+                    span {
+                        font-size: 16px;
+                        line-height: 1;
+                    }
+                }
+
+                .info { display: none; }
+            }
+
+            .lvlBar {
+                bottom: -1px;
+                height: 1px;
+            }
+        } // end .submenu
+    } // end .content
+}

@@ -1,0 +1,19 @@
+// UNIVERSAL STYLES
+// --------------------------------------
+
+// Запрет на выделение текста
+%disTxtSelect {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// Удаление стандартных ститлей у инпутов
+%clearInput {
+    border: none;
+    background: none;
+}

@@ -1,0 +1,226 @@
+.pageEvents {
+    .days {
+        padding-top: 1px;
+        .day {
+            margin-top: 70px;
+
+            .number {
+                width: 60%;
+                color: $mOrange_m;
+                font-size: 40px;
+                font-weight: 500;
+                // text-align: center;
+                padding: 8px 15px;
+                // margin: 0 auto;
+                border-bottom: 2px solid $mOrange_m;
+            }
+
+            .list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin-top: 20px;
+
+                .event {
+                    position: relative;
+                    width: 18%;
+                    padding: 10px;
+                    margin: 0 1% 70px 1%;
+                    box-shadow: 0 0 10px rgba($mGray, .3);
+                    border-left: 3px solid $mBlue_l;
+                    transition: all .3s ease;
+
+                    .time {
+                        position: absolute;
+                        top: calc(100% + 10px);
+                        left: 0;
+                        color: $mBlue_l;
+                        font-size: 25px;
+                        transition: all .3s ease;
+                    }
+
+                    &.student, &.teacher {
+                        // text-align: center;
+                        .ava { @include ava(50px); }
+                        .name {
+                            color: $mBlue_l;
+                            // font-family: 'Rubik';
+                            font-weight: 500;
+                            font-size: 22px;
+                            margin-top: 5px;
+                            transition: all .3s ease;
+                            overflow: hidden;
+                        }
+
+                        .nick {
+                            font-size: 16px;
+                            overflow: hidden;
+                        }
+
+                        .skype, .rating {
+                            display: inline-flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            font-size: 15px;
+                            margin-top: 10px;
+                            opacity: .3;
+                            transition: all .3s ease;
+                            overflow: hidden;
+
+                            .icon {
+                                font-size: 20px;
+                                line-height: -5px;
+                                padding-right: 2px;
+                            }
+
+                            .numb {
+                                font-size: 25px;
+                                font-weight: 500;
+                                line-height: 0;
+                                padding-left: 4px;
+                            }
+
+                            .fraction {
+                                font-size: 13px;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                color: $mOrange_m;
+                                opacity: 1;
+                            }
+                        }
+                    } // end .event.student
+
+                    &.webinar {
+                        width: 38%;
+                        margin: 0 1% 70px 1%;
+                        // padding: 0;
+
+                        .img {
+                            position: relative;
+                            height: 300px;
+                            border-radius: 5px;
+                            overflow: hidden;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                            .blackout {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                background: rgba($mBlue_l, .3);
+                                transition: all .3s ease;
+                            }
+                        }
+
+                        .title {
+                            color: $mBlue_l;
+                            font-family: 'Rubik';
+                            font-size: 22px;
+                            font-weight: 500;
+                            padding: 15px 10px 10px 0px;
+                            transition: all .3s ease;
+                        }
+                    } // end .webinar
+
+                    &:hover {
+                        $clr: $mOrange_m;
+                        border-color: $clr;
+                        .time { color: $clr; }
+                        &.student .name,
+                        &.teacher .name, &.teacher .rating,
+                        &.webinar .title {color: $clr;}
+                        &.webinar .img .blackout {
+                            background: rgba($mOrange_l, .3);
+                        }
+                    }
+
+                    &.past {
+                        $clr: $mGray;
+                        margin-top: 20px;
+                        margin-bottom: 60px;
+                        border-color: $clr;
+
+                        .status {
+                            position: absolute;
+                            right: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 100px;
+                            border: 2px solid $clr;
+
+                            .icon {
+                                color: $clr;
+                                font-size: 20px;
+                            }
+
+                            .list {
+                                position: absolute;
+                                top: 50%;
+                                // left: -90px;
+                                width: 200px;
+                                height: 0px;
+                                border-radius: 5px;
+                                background-color: #fff;
+                                box-shadow: 0 0 10px rgba($mGray, .5);
+                                transition: all .3s ease;
+                                overflow: hidden;
+                                z-index: 100;
+
+                                .txt {
+                                    color: #fff;
+                                    text-align: center;
+                                    width: 100%;
+                                    padding: 10px 0;
+                                    background-color: $mOrange_m;
+                                }
+
+                                .item {
+                                    color: $mGray;
+                                    text-align: center;
+                                    font-size: 15px;
+                                    width: 100%;
+                                    padding: 12px 0;
+                                    transition: all .3s ease;
+                                    &:hover {
+                                        cursor: pointer;
+                                        color: $mOrange_l;
+                                        // background-color: rgba($mOrange_l, .5);
+                                    }
+                                }
+                            } // end .list
+                            
+                            &:hover {
+                                .list { height: 179px; }
+                                .list.user { height: 138px; }
+                            }
+                        } // end .status
+
+                        .date {
+                            position: absolute;
+                            bottom: calc(100% + 8px);
+                            left: 0;
+                            color: $clr;
+                            font-size: 15px;
+                        }
+
+                        .time { color: $clr; }
+                        &.student .name, &.teacher .name {color: $clr;}
+                        &:hover {opacity: 1;.actions{right: 0%;transform: scale(1);}}
+                    } // end &.past
+                } // end .event
+            } // end .list
+        } // end .day
+        @extend %cap;
+    } // end .days
+} // end .page

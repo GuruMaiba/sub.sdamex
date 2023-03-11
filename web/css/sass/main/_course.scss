@@ -1,0 +1,438 @@
+.pageCourse {
+    padding-top: 50px;
+    @extend %ttlDescLinks;
+    @extend %buyCourse;        
+
+    .author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        padding: 30px 2.5% 0;
+        margin: 50px auto 0;
+        border-top: 1px solid rgba($mBlue_l, .2);
+
+        .about {
+            font-size: 18px;
+            text-align: right;
+            padding: 10px 20px 10px 0;
+            margin-right: 20px;
+            border-right: 3px solid $mOrange_m;
+
+            .title {
+                font-family: Rubik;
+                font-weight: 500;
+                color: $mOrange_l;
+                .name { color: $mBlue_l; }
+            }
+
+            .text {
+                white-space: pre-wrap;
+                margin-top: 10px;
+                p { margin-bottom: 10px; }
+            }
+        }
+
+        .ava {
+            position: relative;
+
+            img { @include ava(200px, 3px, $mOrange_m); }
+            .hellowVideo {
+                cursor: pointer;
+                position: absolute;
+                left: 5px;
+                bottom: 5px;
+                // display: none;
+                color: #fff;
+                font-size: 30px;
+                line-height: 0;
+                padding: 8px;
+                border-radius: 100%;
+                box-shadow: 0 0 10px rgba(black, .5);
+                background-color: $mOrange_m;
+                transition: all .3s ease;
+                &:hover { background-color: $mOrange_l; }
+            }
+        }
+    }
+
+    .set {
+        width: 90%;
+        margin: 100px 0 0 auto;
+
+        .listName {
+            font-family: 'Cormorant Infant';
+            font-size: 30px;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .list {
+            border-top: 1px solid $mBlue_d;
+            margin-top: 10px;
+
+            .default {
+                font-size: 25px;
+                font-style: italic;
+                text-align: right;
+                padding: 60px 5px;
+            }
+        }
+
+        &.modules {
+            .module {
+                position: relative;
+                display: block;
+                font-size: 20px;
+                margin-top: 20px;
+                padding: 20px 20px;
+                border-radius: 5px;
+                box-shadow: 0 3px 15px rgba(#000, .2);
+                background: $mBlue_l;
+                color: #fff;
+    
+                .progress {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 70%;
+                    height: 100%;
+                    border-radius: 5px;
+                    background: $mOrange_l;
+                    transition: all .3s ease;
+                }
+    
+                .text { position: relative; }
+                .status {
+                    position: absolute;
+                    top: 0;
+                    right: calc(100% + 15px);
+                    height: 100%;
+                    color: $mBlue_l;
+                    font-weight: 600;
+    
+                    .points {
+                        display: flex;
+                        flex-direction: column;
+                        font-family: 'Rubik';
+                        text-align: right;
+    
+                        .myPoints {
+                            color: $mOrange_l;
+                            font-size: 50px;
+                            line-height: .86;
+                            transition: all .3s ease;
+                        }
+                        .needPoints { color: $mBlue_l; }
+                    } // end .points
+                } // end .status
+    
+                &:hover {
+                    .progress {background: $mCrimson_l;}
+                    .status .points .myPoints {
+                        color: $mCrimson_l;
+                    }
+                }
+    
+                &.free {
+                    .progress { width: 100%; background: $mOrange_m; }
+                    .status .free {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        font-size: 30px;
+                        color: $mOrange_m;
+                    }
+    
+                    &:hover {
+                        .progress {background: $mOrange_l;}
+                        .status .free {
+                            color: $mOrange_l;
+                        }
+                    }
+                }
+    
+                &.disable {
+                    background: rgba($mBlue_l, .5);
+    
+                    .progress { display: none; }
+                    .status .disable {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        width: 44px;
+                        font-size: 50px;
+                        color: rgba($mBlue_l, .5);
+                        line-height: 0;
+                    }
+                }
+            } // end .module
+        }
+
+        &.webinars {
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+
+                .webinar {
+                    display: block;
+                    width: 23%;
+                    margin: 30px 1% 0;
+                    padding: 0;
+
+                    .img {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 200px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        box-shadow: 0 5px 15px rgba(#000, .6);
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            transition: all .3s ease;
+                        }
+
+                        .blackout {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: rgba($mBlue_d, .2);
+                            transition: all .3s ease;
+
+                            .btn {
+                                @include ytBtn($mBlue_d, 70px);
+                            }
+                        } // end .blackout
+                    } // end .img
+
+                    .title {
+                        font-size: 18px;
+                        padding: 15px 10px 0 10px;
+                    }
+
+                    .info {
+                        position: relative;
+                        font-size: 14px;
+                        padding: 10px 10px;
+
+                        .stat {
+                            margin-right: 5px;
+                            opacity: .5;
+                            .icon { vertical-align: middle; }
+                        }
+
+                        .date {
+                            position: absolute;
+                            right: 10px;
+                            opacity: .5;
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        .img {
+                            img {
+                                width: 110%;
+                                height: 110%;
+                            }
+
+                            .blackout {
+                                background: rgba($mBlue_d, .4);
+                                .btn .icon {
+                                    color: $mRed;
+                                    font-size: 80px;
+                                }
+                            } // end .blackout
+                        } // end .img
+                        .title {color: $mOrange_d;}
+                    } // end .item:hover
+                } // end .item
+            }
+        }
+    } // end .modules
+} // end .course
+
+@media (max-width: 1360px) {
+    .pageCourse {
+        .set {
+            .list {
+                .default {
+                    font-size: 20px;
+                }
+            }
+            &.webinars {
+                .list {
+                    .webinar {
+                        width: 30%;
+                        margin: 30px 1.5% 0;
+                    }
+                }
+            }
+        }
+    }// end .pageCourse
+}
+
+@media (max-width: 1024px) {
+    .pageCourse {
+        .author {
+            .about {
+                font-size: 15px;
+                border-right-width: 2px;
+    
+                .title { font-size: 20px; }
+    
+                .text {
+                    margin-top: 8px;
+                    p { margin-bottom: 6px; }
+                }
+            }
+    
+            .ava {
+                img {
+                    width: 150px;
+                    height: 150px;
+                    border-width: 2px;
+                }
+                .hellowVideo { font-size: 20px; }
+            }
+        }
+
+        .set {
+            .list {
+                .default {
+                    font-size: 15px;
+                    padding: 30px 5px;
+                }
+            }
+            &.webinars {
+                .list {
+                    .webinar {
+                        width: 48%;
+                        margin: 25px 1% 0;
+                    }
+                }
+            }
+        }
+    }// end .pageCourse
+}
+
+@media (max-width: 768px) {
+    .pageCourse {
+        padding: 20px 10px;
+
+        .author {
+            flex-direction: column-reverse;
+            width: 100%;
+            padding: 20px 0 0;
+            margin: 30px auto 0;
+    
+            .about {
+                width: 100%;
+                font-size: 15px;
+                text-align: left;
+                padding: 15px 0 0 0;
+                margin: 0;
+                border-right-width: 0;
+    
+                .title {
+                    font-size: 18px;
+                    text-align: center;
+                }
+    
+                .text {
+                    font-size: 13px;
+                    margin-top: 6px;
+                    p { margin-bottom: 4px; }
+                }
+            }
+    
+            .ava {
+                img {
+                    width: 100px;
+                    height: 100px;
+                    border-width: 2px;
+                }
+
+                .hellowVideo {
+                    bottom: 70%;
+                    left: 70%;
+                    font-size: 15px;
+                    box-shadow: 0 0 5px rgba(black, .3);
+                }
+            }
+        }
+
+        .set {
+            width: 100%;
+            margin-top: 30px;
+
+            .listName { font-size: 18px; }
+            .list {
+                margin-top: 5px;
+                .default {
+                    font-size: 11px;
+                    padding: 10px 5px;
+                }
+            }
+
+            &.modules {
+                .module {
+                    font-size: 15px;
+                    margin-top: 10px;
+                    padding: 15px 15px;
+                    border-radius: 5px;
+    
+                    .status {
+                        right: calc(100% + 7px);
+    
+                        .points {
+                            padding-top: 7px;
+                            .myPoints {
+                                font-size: 35px;
+                                line-height: .75;
+                            }
+                            .needPoints { font-size: 11px; }
+                        } // end .points
+                    } // end .status
+        
+                    &.free {
+                        .status .free {
+                            font-size: 16px;
+                            padding-top: 15px;
+                            transform: rotate(-90deg);
+                            // opacity: .5;
+                        }
+                    }
+        
+                    &.disable {
+                        .status .disable {
+                            width: 22px;
+                            font-size: 25px;
+                        }
+                    }
+                } // end .module
+            }
+
+            &.webinars {
+                .list {
+                    .webinar {
+                        width: 100%;
+                        margin: 20px 0 0;
+                    }
+                }
+            }
+        }
+    }// end .pageCourse
+}

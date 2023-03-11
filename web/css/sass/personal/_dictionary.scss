@@ -1,0 +1,88 @@
+.pageDictionary {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(black, .3);
+
+    .dictionary {
+        width: 70%;
+        padding: 0 10px;
+        .search {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 10px 5px 10px;
+            border-bottom: 1px solid $mBlue_d;
+            .icon {
+                font-size: 25px;
+            }
+            input {
+                width: 100%;
+                border: 0;
+                padding: 0 10px;
+            }
+        }
+
+        .list {
+            width: 100%;
+            .item {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 3px;
+                box-shadow: 0 0 3px rgba(gray, .3);
+                transition: all .3s ease;
+                // border-bottom: 1px solid rgba(gray, .4);
+
+                .img {
+                    width: 30px;
+                    .ava { @include ava(20px); }
+                }
+
+                .word {
+                    width: calc(30% - 30px);
+                    padding: 0 10px;
+                    border-left: 1px solid rgba(gray, .2);
+                }
+
+                .translate {
+                    width: 70%;
+                    padding: 0 10px;
+                    border-left: 1px solid rgba(gray, .2);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgba($mGray, .1);
+                }
+            } // end .item
+        } // end .list
+    } // end .dictionary
+
+    .wordInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        color: #fff;
+        background: linear-gradient(0deg, rgba($mCrimson_l, .8), rgba($mOrange_l, .8));
+
+        .ava {
+            @include ava(150px, 2px, #fff);
+        }
+
+        .word {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        .translate {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+    } // end .wordInfo
+} // end .pageDictionary

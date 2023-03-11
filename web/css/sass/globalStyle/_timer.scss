@@ -1,0 +1,133 @@
+.timer {
+    position: relative;
+    color: #fff;
+    $textShadow: 0 0 15px rgba(#000, .7);
+
+    .date {
+        position: absolute;
+        bottom: -15px;
+        left: 30px;
+        font-size: 22px;
+        font-style: italic;
+        text-shadow: 0 0 5px rgba(#000, 1);
+        opacity: .8;
+    }
+
+    ul {
+        margin: 0 auto;
+        list-style: none;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            min-width: 130px;
+            font-size: 100px;
+            font-family: 'Rubik';
+            font-weight: 500;
+            text-align: center;
+            text-shadow: $textShadow;
+            &.point {min-width: auto;}
+        }
+    }
+
+    .point {
+        position: relative;
+        animation: blink 1s ease infinite;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1.0;
+            text-shadow: $textShadow;
+        }
+
+        50% {
+            opacity: 0;
+            text-shadow: none;
+        }
+
+        100% {
+            opacity: 1.0;
+            text-shadow: $textShadow;
+        }
+    }
+}
+
+// #Date {
+//     font-family: 'Text';
+//     font-size: 50px;
+//     text-align: center;
+//     text-shadow: 0 0 5px #00c6ff;
+//     padding: 20px 0;
+//
+//     .timeEdit {
+//         width: 114px;
+//         border-bottom: 1px solid #fff;
+//     }
+// }
+
+@media (max-width: 1360px) {
+    .timer {
+        // $textShadow: 0 0 15px rgba(#000, .7);
+    
+        .date {
+            // bottom: -12px;
+            left: 15px;
+            font-size: 19px;
+            // text-shadow: 0 0 5px rgba(#000, 1);
+        }
+    
+        ul {
+            li {
+                min-width: 100px;
+                font-size: 80px;
+                // text-shadow: $textShadow;
+            }
+        }
+    
+        .point {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .timer {
+        .date {
+            left: 20px;
+            font-size: 15px;
+        }
+    
+        ul {
+            li {
+                min-width: 80px;
+                font-size: 60px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .timer {
+        .date {
+            bottom: -10px;
+            left: auto;
+            right: 0;
+            font-size: 11px;
+        }
+    
+        ul {
+            li {
+                min-width: 40px;
+                font-size: 30px;
+            }
+        }
+        
+        .point {
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.goTop {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    color: #fff;
+    font-size: 25px;
+    line-height: 0;
+    padding: 13px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(black, .3);
+    background: $mBlue_m;
+    transition: all .3s ease;
+    transform: rotate(-60deg);
+    opacity: .8;
+
+    &:hover { opacity: 1; }
+    &.hide { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .goTop {
+        right: 15px;
+        bottom: 15px;
+        font-size: 15px;
+        padding: 10px;
+    }
+}

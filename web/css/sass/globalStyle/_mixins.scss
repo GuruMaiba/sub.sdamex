@@ -1,0 +1,147 @@
+// MIXINS
+// -----------------------
+
+@mixin checkbox-check($name, $clr, $w:.2em, $h:.5em)
+{
+    @keyframes #{$name} {
+        0% {
+            width: 0;
+            height: 0;
+            border-color: $clr;
+            transform: translate3d(0,0,0) rotate(45deg);
+        }
+    
+        33% {
+            width: $w;
+            height: 0;
+            transform: translate3d(0,0,0) rotate(45deg);
+        }
+    
+        100% {
+            width: $w;
+            height: $h;
+            border-color: $clr;
+            transform: translate3d(0,-.5em,0) rotate(45deg);
+        }
+    }
+}
+
+// Аватарка
+@mixin ava($r, $brdW: 0, $brdClr: #fff)
+{
+    @if $r != 0 {
+        width: $r;
+        height: $r;
+        vertical-align: middle;
+        border-radius: 1000px;
+        @if $brdW != 0 { border: $brdW solid $brdClr; }
+        transition: all .3s ease;
+    }
+}
+
+// Блок кругового прогресса
+@mixin circleProgress($r, $brdW, $brdClrDis, $brdClrAct, $trnsActBrd: .7, $trnsDisBrd: .2, $bgClr: $mBG)
+{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: $r;
+    height: $r;
+
+    .number { position: relative; }
+    .borders {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        .visiblePath {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+
+            .leftActive, .rightActive {
+                top: 0;
+                right: 0;
+                width: 200%;
+            }
+
+            &.full {
+                width:100%;
+                .leftActive, .rightActive { width: 100%; }
+            }
+        }
+
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform .1s ease;
+
+            .border {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                background: $bgClr;
+
+                $brdR: $r - ($brdW*2);
+                &:before {
+                    content: '';
+                    display: block;
+                    width: $brdR;
+                    height: $brdR;
+                    border-radius: 100%;
+                    border: $brdW solid $brdClrDis;
+                }
+            }
+
+            &.bg .border {width: 100%;}
+            &.rightActive, &.leftActive { display: none; }
+        } // end .circle
+    } // end .borders
+
+    &.active {
+        .number { color: $brdClrAct; }
+        .borders .circle {
+            .border:before { border-color: rgba($brdClrDis, $trnsDisBrd); }
+            &.rightActive, &.leftActive {
+                display: block;
+                .border:before { border-color: rgba($brdClrAct, $trnsActBrd); }
+            }
+        }
+        &.allProgress {display: block;}
+    }
+}
+
+// Цвет стандартного заполнение
+@mixin placeholder($clr)
+{
+    &::-webkit-input-placeholder { color: $clr; }
+    &::-moz-placeholder          { color: $clr; }
+    &:-moz-placeholder           { color: $clr; }
+    &:-ms-input-placeholder      { color: $clr; }
+}
+
+@mixin ytBtn($clr, $size) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background: #fff;
+
+    .icon {
+        position: relative;
+        color: $clr;
+        font-size: $size;
+        line-height: 0;
+        padding: 0;
+        text-shadow: 0 3px 10px rgba(#000, .6);
+        transition: all .3s ease;
+    }
+}
